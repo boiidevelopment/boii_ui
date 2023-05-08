@@ -8,9 +8,9 @@ game 'gta5'
 
 author 'CASE#1993'
 
-description 'BOII | Development - Utility: UI Elements'
+description 'BOII | Development - Utility: UI Elements *(W.I.P)*'
 
-version '1.0.0'
+version '0.0.1'
 
 lua54 'yes'
 
