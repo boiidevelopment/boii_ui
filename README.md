@@ -1,6 +1,7 @@
-# BOII | DEVELOPMENT - UTILITY; UI ELEMENTS
+# BOII | DEVELOPMENT - UTILITY; UI ELEMENTS *(W.I.P)*
 
 Here we have a large UI pack to cover most things you may need in your city.
+Project is still classed as a work in progress due to some additional elements soon to be added, and some code refactoring to do.
 Every element is modular to allow citizens the option of customising their UI.
 Most elements come with extensive customisation options to allow you to tweak the UI to your server's style.
 Includes: notifications, progressbar, drawtext ui, and a skill circle.
