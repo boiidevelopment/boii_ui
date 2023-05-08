@@ -1,0 +1,26 @@
+/*----------------------------*/
+/*---- BOII | DEVELOPMENT ----*/
+/*----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#ui-elements {
+    width: 100vw;
+    height: 100vh;
+}
+
+.float-l {
+    float: left !important;
+}
+
+.float-r {
+    float: left !important;
+}

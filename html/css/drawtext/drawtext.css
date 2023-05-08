@@ -1,0 +1,187 @@
+/*----------------------------*/
+/*---- BOII | DEVELOPMENT ----*/
+/*----------------------------*/
+
+#drawtext-container {
+    position: fixed;
+    width: 19.5vw;
+    background: rgba(0, 0, 0, 0.0);
+    border-radius: 15px;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vw;
+    padding-bottom: 3vh;
+    top: 0;
+    left: 0;
+}
+
+.drawtext {
+    display: flex;
+    padding: 1%;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+    margin-left: 0.1vw;
+    width: fit-content;
+    block-size: fit-content;
+    align-items: center;
+    background: rgba(31, 30, 30, 0.9);
+    border: 1px solid rgba(77, 203, 194, 1.0);
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Aldrich';
+    box-shadow: 0px 0px 5px 0px rgba(77, 203, 194, 1.0);
+    float: ;
+}
+
+.drawtext-image {
+    min-height: 4.7vh;
+    min-width: 2.8vw;
+    margin: 2%;
+    border: 1px solid rgba(77, 203, 194, 1.0);
+    border-radius: 15px;
+    background-image: url('/html/images/logo.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 0px 5px 0px rgba(77, 203, 194, 1.0);
+}
+
+.drawtext-body {
+    margin-left: 0.5vw;
+}
+
+.drawtext-header {
+    font-size: 1.1rem;
+    min-inline-size: 13vw;
+    font-weight: 600;
+    margin-top: 0.2vh;
+}
+
+.drawtext-message {
+    font-size: 1.0rem;
+    font-weight: 100;
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
+    min-inline-size: 12.1vw;
+}
+
+.drawtext-header i {
+    position: relative;
+    top: 0.3vh;
+    margin-right: 0.3vw;
+}
+
+.drawtext-message p {
+    font-size: 1.0rem;
+    margin-top: 0.1vh;
+    align-items: center;
+}
+
+.drawtext-message p i {
+    margin-right: 1vw;
+    align-items: center;
+}
+
+#drawtext-dummy-container {
+    position: fixed;
+    width: 19.5vw;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vw;
+    padding-bottom: 3vh;
+    top: 0;
+    left: 0;
+}
+
+.drawtext-dummy {
+    display: flex;
+    padding: 1%;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+    margin-left: 0.1vw;
+    width: fit-content;
+    block-size: fit-content;
+    align-items: center;
+    background: rgba(31, 30, 30, 0.5);
+    border: 1px solid rgba(31,30,30, 0.1);
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Aldrich';
+    box-shadow: 0px 0px 5px 0px rgba(31,30,30, 0.5);
+    float: ;
+}
+
+.drawtext-dummy-image {
+    min-height: 4.7vh;
+    min-width: 2.8vw;
+    margin: 2%;
+    border: 1px solid rgba(31,30,30, 0.1);
+    border-radius: 15px;
+    background-image: url('/html/assets/images/logo-grey.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 0px 5px 0px rgba(31,30,30, 0.5);
+}
+
+.drawtext-dummy-body {
+    margin-left: 0.5vw;
+}
+
+.drawtext-dummy-header {
+    font-size: 1.1rem;
+    min-inline-size: 13vw;
+    font-weight: 600;
+    margin-top: 0.2vh;
+}
+
+.drawtext-dummy-message {
+    font-size: 1.0rem;
+    font-weight: 100;
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
+    min-inline-size: 12.1vw;
+}
+
+.drawtext-dummy-header i {
+    position: relative;
+    top: 0.3vh;
+    margin-right: 0.3vw;
+}
+
+.drawtext-dummy-message p {
+    font-size: 1.0rem;
+    margin-top: 0.1vh;
+    align-items: center;
+}
+
+.drawtext-dummy-message p i {
+    margin-right: 1vw;
+    align-items: center;
+}
+
+.drawtext-move i {
+    position: absolute; 
+    top: 8.5vh;
+    right: 12vw;
+    font-size: 2.5rem; 
+    color:rgba(255,255,255,0.5)
+}
+
+.drawtext-move i:hover {
+    cursor: pointer;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7)
+}
+
+.drawtext-float i {
+    position: absolute; 
+    top: 9.15vh;
+    right: 8vw;
+    font-size: 1.8rem; 
+    color:rgba(255,255,255,0.5)
+}
+
+.drawtext-float i:hover {
+    cursor: pointer;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7)
+}

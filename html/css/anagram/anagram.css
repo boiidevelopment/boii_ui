@@ -1,0 +1,158 @@
+/*----------------------------*/
+/*---- BOII | DEVELOPMENT ----*/
+/*----------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+.anagram-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    box-shadow: 1px 1px 10px 1px rgba(31, 30, 30, 0.9);
+    padding: 1rem;
+    background-color: rgba(31, 30, 30, 0.9);
+    border: 3px solid rgba(31, 30, 30, 0.9);
+    border-radius: 15px;
+    position: fixed;
+    top: 325px;
+    left: 750px;
+    z-index: 0;
+    font-family: 'VT323', monospace;
+    color: rgba(77, 203, 194, 1);
+    font-size: 18px;
+}
+
+.anagram-game-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.1rem;
+}
+
+#anagram {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 4rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+#time-remaining {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+#remaining-guesses {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+#guess-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+#guess-input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid rgba(77, 203, 194, 1);
+    border-radius: 0.25rem;
+    background-color: #313030;
+    color: rgba(77, 203, 194, 1);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}
+
+#guess-form button {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(77, 203, 194, 0.5);
+    color: #000;
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    font-family: 'VT323', monospace;
+}
+
+#guess-form button:hover {
+    background-color: rgba(77, 203, 194, 0.8);
+}
+
+#message {
+    font-size: 2rem;
+    margin-top: 0.1rem;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.previous-guesses-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#previous-guesses {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+#previous-guesses li {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(77, 203, 194, 1);
+    color: #000;
+    border-radius: 0.25rem;
+    border: 2px solid rgba(31, 30, 30, 0.9);
+    box-shadow: 1px 1px 10px 1px rgba(31, 30, 30, 0.9);
+}
+
+h2 {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+#anagram-dummy-container {
+    position: fixed;
+    top: 320px;
+    left: 745px;
+    height: 39vh;
+    width: 22vw;
+    border-radius: 15px;
+    background: rgba(31, 30, 30, 0.2);
+}
+
+.anagram-dummy {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    height: 28vh;
+    width: 21vw;
+    border-radius: 15px;
+    background: rgba(31, 30, 30, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'VT323', monospace;
+    padding-top: 3vh
+}
+
+.anagram-move i {
+    position: absolute;
+    top: 33vh;
+    right: 9.5vw;
+    font-size: 4rem; 
+    color: rgba(255,255,255,0.5);
+}
+
+.anagram-move i:hover {
+    cursor: pointer;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7)
+}

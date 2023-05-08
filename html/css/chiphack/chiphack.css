@@ -1,0 +1,137 @@
+/*----------------------------*/
+/*---- BOII | DEVELOPMENT ----*/
+/*----------------------------*/
+
+#chip-hack-start-container {
+    position: absolute;
+    top: 39vh;
+    left: 38vw;
+    height: 16vh;
+    width: 25vw;
+    border: 5px solid rgba(31, 30, 30, 1);
+    border-radius: 25px;
+    background-color: black;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    text-shadow: 
+    0px 4px 3px rgba(0,0,0,0.6),
+    0px 8px 13px rgba(0,0,0,0.3),
+    0px 18px 23px rgba(0,0,0,0.3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Aldrich'
+}
+
+#chip-hack-start-container i {
+    margin-top: 15px;
+    margin-bottom: 20px
+}
+
+#chip-hack-start-container h2 {
+    margin-bottom: 20px
+} 
+
+.chip-progress-container .chip-progress {
+    position: absolute;
+    left: 2.5vh;
+    height: 2.5vh;
+    width: 0;
+    border-radius: 25px;
+    background: rgba(77, 203, 194, 0.8);
+    transition: width 0.4s ease;
+}
+
+#chip-hack-game-container {
+    position: absolute;
+    top: 16vh;
+    left: 22vw;
+    height: 65vh;
+    width: 100vh;
+    border: 5px solid rgba(31, 30, 30, 1);
+    border-radius: 25px;
+    background-color: black;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-family: 'Aldrich'
+}
+
+#chip-game-area {
+    position: fixed;
+    margin-top: 0.5vh;
+    margin-left: 0.5vw;
+    border: transparent;
+    border-radius: 25px;
+    padding: 3%;
+    top: 17vh;
+    height: 52.5vh;
+    width: 49vw;
+    pointer-events: auto;
+}
+
+.chip-hack-wrapper {
+    position: relative;
+    height: 65vh;
+    width: 100vh;
+    background-color: transparent !important;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: 25px;
+}
+
+.shadow {
+    position: absolute;
+    width: 200vw;
+    height: 200vh;
+    left: 49.5%;
+    top: 52%;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: radial-gradient(circle at center, transparent, #000 3%);
+    background-color: rgba(255, 255, 255, 0.2)
+}
+
+#chip {
+    font-size: 2rem;
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border: transparent !important;
+    background-color: transparent !important;
+    color: #4dcbc2
+}
+
+#chip-info-container {
+    position: absolute;
+    top: 60.5vh;
+    right: 1vw;
+    height: 6vh;
+    width: 20vw;
+    background-color: rgba(31, 30, 30, 0);
+    color: rgba(255,255,255,0.8);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+    text-align: right;
+    padding: 0.2vh;
+    font-size: 1rem;
+}
+
+#chip-info-container h2 {
+    margin-top: 5px;
+}
+
+#chip-hack-count-container {
+    position: absolute;
+    top: 60.5vh;
+    left: 1vw;
+    height: 2vh;
+    width: 15vw;
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+    padding: 1vh;
+}
+
+#chip-hack-count {
+    position: absolute;
+    top: 1vh;
+}
