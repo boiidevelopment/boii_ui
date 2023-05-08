@@ -54,7 +54,7 @@ class CodeCrack {
         for (let i = 0; i < length; i++) {
             code += Math.floor(Math.random() * 10);
         }
-        console.log(code);
+        //console.log(code);
         return code;
     }
   
