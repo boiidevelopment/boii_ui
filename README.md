@@ -209,7 +209,7 @@ end)
 ```
 
 ### PREVIEW
-coming soon..
+https://www.youtube.com/watch?v=wauI7hyfrqE
 
 ### SUPPORT
 https://discord.gg/boiidevelopment
