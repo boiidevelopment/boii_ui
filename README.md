@@ -312,7 +312,6 @@ Styles:
 },
 ```
 
-
 Export:
 ```lua
 --[[
@@ -339,6 +338,126 @@ exports['boii_ui']:skill_circle('default' --[[style]], 25 --[[duration]], false 
         print('circle failed')
     end
 end)
+```
+
+- Context menu
+
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/be8486d0-9d5c-474e-88db-5e24cfe2a4ec)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/53a17de2-182e-435b-98a8-3da7681607d9)
+
+Styles:
+```javascript
+['default']: {
+        mainHeaderBackground: 'rgba(31, 30, 30, 0.8)',
+        mainHeaderBoxShadow: '0px 0px 4px 0px rgba(77, 203, 194, 0.8)',
+        mainHeaderBorder: '1px solid rgba(77, 203, 194, 0.8)',
+        mainHeaderBorderRadius: '15px',
+        mainHeaderColor: 'rgba(255, 255, 255, 0.8)',
+        mainHeaderFontFamily: 'Aldrich',
+        mainHeaderImageBorder: '2px solid rgba(77, 203, 194, 0.8)',
+        mainHeaderImageBorderRadius: '15px',
+        mainHeaderImageBoxShadow: '0px 0px 4px 0px rgba(77, 203, 194, 0.8)',
+        mainHeaderFontSize: '1.0rem',
+        mainHeaderWeight: 600,
+        mainHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionBackground: 'rgba(31, 30, 30, 0.8)',
+        optionBoxShadow: '0px 0px 4px 0px rgba(77, 203, 194, 0.8)',
+        optionBorder: '1px solid rgba(77, 203, 194, 0.8)',
+        optionBorderRadius: '15px',
+        optionColor: 'rgba(255, 255, 255, 0.8)',
+        optionFontFamily: 'Aldrich',
+        optionHeaderFontSize: '1.0rem',
+        optionMessageFontSize: '1.0rem',
+        optionHeaderWeight: 600,
+        optionMessageWeight: 100,
+        optionImageBorder: '2px solid rgba(77, 203, 194, 0.8)',
+        optionImageBorderRadius: '15px',
+        optionImageBoxShadow: '0px 0px 4px 0px rgba(77, 203, 194, 0.8)',
+        optionHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionHoverBackground: 'rgba(31, 30, 30, 0.8)',
+        optionHoverBoxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1)',
+        optionHoverColor: 'rgba(255, 255, 255, 1)',
+        buttonBackground: 'rgba(31, 30, 30, 0.8)',
+        buttonBorder: '1px solid rgba(77, 203, 194, 1.0)',
+        buttonBorderRadius: '15px',
+        buttonBoxShadow: '0px 0px 4px 0px rgba(77, 203, 194, 0.8)',
+        buttonFontSize: '1.0rem',
+        buttonFontFamily: 'Aldrich',
+        buttonFontWeight: 600,
+        buttonColor: 'rgba(255, 255, 255, 0.8)',
+        buttonHoverBackground: 'rgba(31, 30, 30, 0.8)',
+        buttonHoverBoxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1)',
+        buttonHoverColor: 'rgba(255, 255, 255, 1)'
+},
+```
+
+Export:
+```lua
+--[[
+    NOTES:
+
+    style - style template used; these can be edited in contextmenu.js
+    menu_data - menu data to open in ui refer to example menu
+
+]]
+exports['boii_ui']:open_menu('default' --[[style]], menu_data --[[menu data]])
+```
+
+Example menu:
+```lua
+-- Example menu options
+local menu_options = {
+    {
+        header = 'Option 1', -- Menu option header if header is being used
+        header_icon = '<i class="fa-solid fa-bell"></i>', -- Menu header icon if using one this can be removed if not
+        image = '/html/assets/images/logo.png', -- Menu header image if using one if not remove
+        message = 'A menu option with icons and a image that triggers a server event.', -- Menu option text if text is being used
+        message_icon = '<i class="fa-solid fa-bell"></i>', -- Menu header icon if using one this can be removed if not
+        action_type = 'server_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        action = 'boii_ui:sv:menu_test_event',  -- Name of event to trigger
+        params = {}, -- Event params
+        should_close = false, -- Toggle whether event should close the menu ui
+        disabled = false -- Disable the onclick function of the option
+    },
+    {
+        header = 'Option 2', -- Menu option header if header is being used
+        header_icon = '<i class="fa-solid fa-bell"></i>', -- Menu header icon if using one this can be removed if not
+        message = 'A menu option with a icon that triggers a client event.', -- Menu option text if text is being used
+        action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        action = 'boii_ui:cl:menu_test_event',  -- Name of event to trigger
+        params = {}, -- Event params
+        should_close = false, -- Toggle whether event should close the menu ui
+        disabled = false -- Disable the onclick function of the option
+    },
+    {
+        header = 'Option 3', -- Menu option header if header is being used
+        message = 'A menu option that triggers a client event and closes the menu.', -- Menu option text if text is being used
+        action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        action = 'boii_ui:cl:menu_test_event', -- Name of event to trigger
+        params = {},  -- Event params
+        should_close = true, -- Toggle whether event should close the menu ui
+        disabled = false -- Disable the onclick function of the option
+    },
+}
+
+-- Example menu_data
+local menu_data = {
+    main_header = { -- Main menu header
+        text = 'Example Header', -- Header text
+        image = '/html/assets/images/logo.png', -- Image to display on header. Remove this to use no image
+        icon = '<i class="fa-solid fa-bell"></i>' -- Icon to display next to header text. Remove this to use no icon
+    },
+    menu_options = menu_options, -- Menu options, refer to menu_options above, menu was split for readability 
+    menu_buttons = { -- Menu buttons mostly pointless since they work the same as any other options mainly just allows for more customisation over menu templates
+        close = {
+            use = true, -- Toggle the close button
+            action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+            action = 'boii_ui:cl:menu_test_event', -- Name of event to trigger
+            params = {}, -- Event params
+            should_close = true, -- Toggle whether event should close the menu ui
+        }
+    },
+}
 ```
 
 ### PREVIEW
