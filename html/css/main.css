@@ -24,3 +24,7 @@
 .float-r {
     float: left !important;
 }
+
+::-webkit-scrollbar {
+    width: 0%;
+}
