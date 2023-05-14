@@ -20,6 +20,34 @@ Enjoy!
 
 - Notifications
 
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/15a482e3-cb91-493d-8b0b-dc3e1e705da3)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/58c0f2d6-4a59-4d3d-9b1a-d25bb9126f40)
+
+Styles:
+```javascript
+['default']: {
+        background: 'rgba(31, 30, 30, 0.9)',
+        border: '1px solid rgba(77, 203, 194, 1.0)',
+        borderRadius: '15px',
+        color: 'rgba(255, 255, 255, 0.9)',
+        fontFamily: 'Aldrich',
+        boxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1.0)',
+        headerIcon: '<i class="fa-solid fa-bell"></i>',
+        headerWeight: 600,
+        headerShadow: '2px 2px 2px rgba(0, 0, 0, 0.8)',
+        messageIcon: undefined,
+        messageWeight: 100,
+        messageShadow: '2px 2px 2px rgba(0, 0, 0, 0.8)',
+        image: '/html/assets/images/logo.png',
+        imageBorder: '1px solid rgba(77, 203, 194, 1.0)',
+        imageBorderRadius: '15px',
+        imageBoxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1.0)',
+        animation: 'fade 2s',
+        audio: 'assets/audio/eyes.ogg',
+},
+```
+
+Export:
 ```lua
 
 --[[
@@ -37,6 +65,33 @@ exports['boii_ui']:notify('TEST NOTIFICATION' --[[header]], 'This is a test noti
 
 - Drawtext
 
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/269c9632-60ea-4ae1-adc2-1af268846525)
+
+Styles:
+```javascript
+['default']: {
+        background: 'rgba(31, 30, 30, 0.9)',
+        border: '1px solid rgba(77, 203, 194, 1.0)',
+        borderRadius: '15px',
+        color: 'rgba(255, 255, 255, 0.9)',
+        fontFamily: 'Aldrich',
+        boxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1.0)',
+        headerIcon: '<i class="fa-solid fa-bell"></i>',
+        headerWeight: 600,
+        headerShadow: '2px 2px 2px rgba(0, 0, 0, 0.8)',
+        messageIcon: undefined,
+        messageWeight: 100,
+        messageShadow: '2px 2px 2px rgba(0, 0, 0, 0.8)',
+        image: '/html/assets/images/logo.png',
+        imageBorder: '1px solid rgba(77, 203, 194, 1.0)',
+        imageBorderRadius: '15px',
+        imageBoxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1.0)',
+        animation: 'fade 2s',
+        audio: 'assets/audio/when.ogg',
+},
+```
+
+Export:
 ```lua
 
 --[[
@@ -53,8 +108,31 @@ exports['boii_ui']:show_drawtext('TEST DRAWTEXT' --[[header]], 'Drawtext test ui
 
 - Progressbar
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/31a874cc-4ee0-41a6-a0ee-4e3ac242eff5)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/03a7b585-67bc-4873-be33-3f892353986a)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/cc73d561-8cea-4838-a2d0-9651fb293fb7)
 
+Styles:
+```javascript
+['default']: {
+        background: 'rgba(31, 30, 30, 0.9)',
+        border: '1px solid rgba(77, 203, 194, 1.0)',
+        borderRadius: '15px',
+        color: 'rgba(255, 255, 255, 0.9)',
+        fontFamily: 'Aldrich',
+        boxShadow: '0px 0px 5px 0px rgba(77, 203, 194, 1.0)',
+        headerIcon: '<i class="fa-solid fa-bell"></i>',
+        headerWeight: 600,
+        headerShadow: '2px 2px 2px rgba(0, 0, 0, 0.8)',
+        barBackground: 'rgba(77, 203, 194, 0.5)',
+        barRadius: '15px',
+        animation: 'fade 1s',
+        audio: 'assets/audio/hollow.ogg',
+},
+```
+
+Export:
+```lua
 --[[
     NOTES:
 
@@ -89,8 +167,19 @@ exports['boii_ui']:progress('Progressbar Test..' --[[text]], 'default' --[[style
 
 - Anagram
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/9c75bbca-3396-4b88-ab16-491a98cfd722)
 
+Styles:
+```javascript
+['default']: {
+        successAudio: 'assets/audio/swift.ogg',
+        failAudio: 'assets/audio/eyes.ogg',
+        errorAudio: 'assets/audio/elegant.ogg'
+},
+```
+
+Export:
+```lua
 --[[
     NOTES:
 
@@ -113,8 +202,13 @@ end)
 
 - Chip hack
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/7fe1e9af-e429-4cb1-9c14-76c641600c5a)
 
+Styles:
+coming soon..
+
+Export:
+```lua
 --[[
     NOTES: 
 
@@ -134,8 +228,21 @@ end)
 
 - Code crack
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/28fcbcf6-7a11-4da0-8078-68df7619aaf5)
 
+Styles:
+```javascript
+['default']: {
+        correctColour: 'rgba(77, 203, 194, 0.8)',
+        wrongPositionColour: 'rgba(254, 221, 0, 1.0)',
+        successAudio: 'assets/audio/swift.ogg',
+        failAudio: 'assets/audio/eyes.ogg',
+        errorAudio: 'assets/audio/elegant.ogg'
+}
+```
+
+Export:
+```lua
 --[[
     NOTES:
 
@@ -157,8 +264,14 @@ end)
 
 - Keydrop
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/1bc772a5-5bc1-4125-a23b-649c959dab03)
 
+Styles:
+
+coming soon..
+
+Export:
+```lua
 --[[
     NOTES
 
@@ -180,8 +293,28 @@ end)
 
 - Skill circle
 
-```lua
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/23b9e710-78e1-4b60-a2f5-30ec804298df)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/7d689e07-b4d4-40bd-831c-ba82075290f4)
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/338e88f5-00e9-4918-81cf-e206090d7ccd)
 
+Styles:
+```javascript
+['default']: {
+        barColour: 'rgba(77, 203, 194, 0.5)',
+        backgroundColour: 'rgba(31, 30, 30, 0.8)',
+        successBackgroundColour: 'rgba(77, 203, 194, 0.8)',
+        fontColour: 'rgba(77, 203, 194, 1.0)',
+        shadowColour: 'rgba(31, 30, 30, 0.8)',
+        shadowBlur: 3,
+        barFont: '6.5rem Aldrich',
+        successAudio: 'assets/audio/swift.ogg',
+        failAudio: 'assets/audio/eyes.ogg',
+},
+```
+
+
+Export:
+```lua
 --[[
     NOTES:
 
