@@ -1,0 +1,155 @@
+#context-menu-container {
+    position: fixed;
+    top: 150px;
+    left: 1050px;
+    height: 80vh;
+    width: 17vw;
+    background: rgba(31, 30, 30, 0);
+    display: block;
+    padding: 1%;
+    overflow-y: scroll;
+}
+
+.menu-header {
+    display: flex;
+    padding: 1.5%;
+    margin-bottom: 0.5vh;
+    margin-left: 0.6vw;
+    width: 15vw;
+    align-items: center;
+    background: ;
+    border: ;
+    border-radius: ;
+    color: ;
+    font-family: ;
+    box-shadow: ;
+    text-shadow: ;
+    float: ;
+}
+
+.menu-header-image {
+    min-height: 4.7vh;
+    min-width: 2.6vw;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
+    margin-left: 0.1vw;
+    margin-right: 0.5vw;
+    border: ;
+    border-radius: ;
+    background-image: ;
+    background-size: cover;
+    background-position: center;
+    box-shadow: ;
+}
+
+.menu-header-body {
+    width: 100%;
+    margin-left: 0.5vw;
+    display: flex;
+    align-items: center;
+}
+
+.menu-header-text {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.menu-header-text i {
+    position: relative;
+    top: 0.25vh;
+    margin-right: 0.4vw;
+}
+
+.menu-option {
+    display: flex;
+    padding: 1.5%;
+    margin-top: 0.8vh;
+    margin-bottom: 1.2vh;
+    margin-left: 0.6vw;
+    width: 15vw;
+    align-items: center;
+    background: ;
+    border: ;
+    border-radius: 15px;
+    color: ;
+    font-family: ;
+    box-shadow: ;
+    float: ;
+    cursor: pointer;
+}
+
+.menu-option:hover {
+   
+}
+
+.menu-option-image {
+    min-height: 3.5vh;
+    min-width: 2vw;
+    margin: 1%;
+    border: ;
+    border-radius: ;
+    background-image: ;
+    background-size: cover;
+    background-position: center;
+    box-shadow: ;
+}
+
+.menu-option-body {
+    margin-left: 0.5vw;
+}
+
+.menu-option-header {
+    font-size: 0.9rem;
+    font-weight: ;
+    margin-top: 0.2vh;
+}
+
+.menu-option-message {
+    font-size: 0.8rem;
+    font-weight: ;
+    margin-top: 0.3vh;
+    margin-right: 0.3vw;
+}
+
+.menu-option-header i {
+    position: relative;
+    top: 0.25vh;
+    margin-right: 0.3vw;
+}
+
+.menu-option-message p {
+    font-size: 0.8rem;
+    align-items: center;
+}
+
+.menu-option-message i {
+    position: relative;
+    top: 0.25vh;
+    margin-right: 0.5vw;
+}
+
+.menu-buttons {
+    padding: 1.5%;
+    margin-top: -1.5vh;
+    margin-left: 0.3vw;
+    width: 18vw;
+    align-items: center;
+}
+
+.menu-btn {
+    height: 3.5vh;
+    width: 15.75vw;
+    border-radius: 15px;
+    color: ;
+    background: ;
+    border: ;
+    box-shadow: ;
+    font-family: ;
+    font-size: 1.0rem;
+    font-weight: ;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    
+}
