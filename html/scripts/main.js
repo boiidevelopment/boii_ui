@@ -45,6 +45,17 @@ window.addEventListener('message', function (event) {
     } else if (data.action === 'start_chiphack') {
         chip_hack = new ChipHack();
         chip_hack.init(data.game.chips, data.game.timer);
+    } else if (data.action === 'create_menu') {
+        context_menu = new ContextMenu(context_styles);
+        let menu_data = data.menu;
+        menu_data.menu_options.forEach((option) => {
+            option.callback = (action_type, action, params, should_close) => {
+                $.post(`https://${GetParentResourceName()}/trigger_event`, JSON.stringify({ action_type, action, params, should_close }));
+            };
+        });
+        context_menu.create_menu(data.type, menu_data);
+    } else if (data.action === 'close_menu') {
+        context_menu.close_menu();
     }
 })
 
