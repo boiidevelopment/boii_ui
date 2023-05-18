@@ -53,6 +53,7 @@ local menu_data = {
     menu_buttons = { -- Menu buttons mostly pointless since they work the same as any other options mainly just allows for more customisation over menu templates
         close = {
             use = true, -- Toggle the close button
+            text = 'Close', -- Edit close button text
             action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
             action = 'boii_ui:cl:menu_test_event', -- Name of event to trigger
             params = {}, -- Event params
