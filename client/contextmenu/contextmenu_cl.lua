@@ -86,7 +86,6 @@ RegisterNUICallback('trigger_event', function(data)
     if should_close then
         SetNuiFocus(false, false)
         SendNUIMessage({action = 'close_menu'})
-        exports['boii_ui']:notify(nil, 'menu closed', 'success', 3500)
     end
 end)
 
