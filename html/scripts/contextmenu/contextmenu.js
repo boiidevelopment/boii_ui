@@ -189,7 +189,7 @@ class ContextMenu {
         if (options.menu_buttons) {
             let menu_buttons_div = create_element('div', 'menu-buttons');
             if (options.menu_buttons.close && options.menu_buttons.close.use) {
-                let close_button = create_element('button', 'menu-btn', 'Close');
+                let close_button = create_element('button', 'menu-btn', options.menu_buttons.close.text);
                 close_button.style.background = style.buttonBackground;
                 close_button.style.border = style.buttonBorder;
                 close_button.style.borderRadius = style.buttonBorderRadius;
