@@ -10,7 +10,7 @@ author 'CASE#1993'
 
 description 'BOII | Development - Utility: UI Elements *(W.I.P)*'
 
-version '0.0.3'
+version '0.0.4'
 
 lua54 'yes'
 
