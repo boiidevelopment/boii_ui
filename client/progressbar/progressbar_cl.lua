@@ -76,11 +76,12 @@ local function progress(text, style, duration, allow_dead, controls, animation, 
     progress_active = true
     disable_controls(player, controls)
     if animation ~= nil then
-        RequestAnimDict(animation.dict)
-        while not HasAnimDictLoaded(animation.dict) do
+        dict = animation.dict or animation.animDict
+        RequestAnimDict(dict)
+        while not HasAnimDictLoaded(dict) do
             Wait(0)
         end
-        TaskPlayAnim(player, animation.dict, animation.anim, 3.0, 3.0, -1, animation.flags, 0, false, false, false)
+        TaskPlayAnim(player, dict, animation.anim, 3.0, 3.0, -1, animation.flags, 0, false, false, false)
     end
 end
 
