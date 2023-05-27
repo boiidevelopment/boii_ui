@@ -98,9 +98,12 @@ class DrawText {
     }
 
     build(style) {
+        if (DrawText.exists) return;
+        
         let main_div = document.getElementById('drawtext-container')
         let drawtext_container = create_element('div', 'drawtext')
         let drawtext_body = create_element('div', 'drawtext-body')
+        
         if (style === undefined) {
             style = drawtext_styles['default']
         }
@@ -115,6 +118,7 @@ class DrawText {
             drawtext_body.append(drawtext_message)
             drawtext_message.style.fontWeight = style.messageWeight
         }
+        
         drawtext_container.append(drawtext_body)
         drawtext_container.style.background = style.background
         drawtext_container.style.boxShadow = style.boxShadow
@@ -124,6 +128,7 @@ class DrawText {
         drawtext_container.style.fontFamily = style.fontFamily
         drawtext_container.style.animation = style.animation
         drawtext_container.style.float = user_drawtext_settings.float;
+        
         if (style.image !== undefined) {
             let drawtext_image = create_element('div', 'drawtext-image')
             drawtext_image.style.backgroundImage = "url("+style.image+")"
@@ -132,6 +137,7 @@ class DrawText {
             drawtext_image.style.boxShadow = style.imageBoxShadow
             drawtext_container.insertBefore(drawtext_image, drawtext_container.firstChild)
         }
+        
         let drawtext_audio
         if (style.audio !== undefined) {
             drawtext_audio = new Audio(style.audio)
@@ -143,10 +149,14 @@ class DrawText {
     }
 
     display() {
-        this.build(drawtext_styles[this.type]);
+        if (!DrawText.exists) {
+            this.build(drawtext_styles[this.type]);
+            DrawText.exists = true;
+        }
     }
 
     close() {
         $('#drawtext-container').empty();
+        DrawText.exists = false;
     }
 }
