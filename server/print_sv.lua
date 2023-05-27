@@ -7,7 +7,7 @@ AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
       return
     end
-    print('^5--<^3!^5>-- ^7BOII ^5| ^7DEVELOPMENT ^5--<^3!^5>-- ^7UTILITY: UI ELEMENTS V0.0.4 ^5--<^3!^5>--^7')
+    print('^5--<^3!^5>-- ^7BOII ^5| ^7DEVELOPMENT ^5--<^3!^5>-- ^7UTILITY: UI ELEMENTS V0.0.6 ^5--<^3!^5>--^7')
 end)
 --<!>-- SERVER PRINT --<!>--
 
