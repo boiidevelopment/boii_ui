@@ -193,6 +193,14 @@ $(() => {
 })
 
 function build_settings() {
+    user_ui_settings = JSON.parse(localStorage.getItem('user_settings_ui'))
+    user_notif_settings = JSON.parse(localStorage.getItem('user_settings_notif'))
+    user_drawtext_settings = JSON.parse(localStorage.getItem('user_settings_drawtext'))
+    user_progress_settings = JSON.parse(localStorage.getItem('user_settings_progress'))
+    user_keydrop_settings = JSON.parse(localStorage.getItem('user_settings_keydrop'))
+    user_circle_settings = JSON.parse(localStorage.getItem('user_settings_circle'))
+    user_anagram_settings = JSON.parse(localStorage.getItem('user_settings_anagram'))
+    user_codecrack_settings = JSON.parse(localStorage.getItem('user_settings_codecrack'))
     if (user_ui_settings == null) {
         localStorage.setItem('user_settings_ui', JSON.stringify(default_ui_settings))
         user_ui_settings = default_ui_settings
@@ -225,14 +233,6 @@ function build_settings() {
         localStorage.setItem('user_settings_codecrack', JSON.stringify(default_codecrack_settings))
         user_codecrack_settings = default_codecrack_settings
     }
-    user_ui_settings = JSON.parse(localStorage.getItem('user_settings_ui'))
-    user_notif_settings = JSON.parse(localStorage.getItem('user_settings_notif'))
-    user_drawtext_settings = JSON.parse(localStorage.getItem('user_settings_drawtext'))
-    user_progress_settings = JSON.parse(localStorage.getItem('user_settings_progress'))
-    user_keydrop_settings = JSON.parse(localStorage.getItem('user_settings_keydrop'))
-    user_circle_settings = JSON.parse(localStorage.getItem('user_settings_circle'))
-    user_anagram_settings = JSON.parse(localStorage.getItem('user_settings_anagram'))
-    user_codecrack_settings = JSON.parse(localStorage.getItem('user_settings_codecrack'))
     $('#settings-container').css({
       top: user_ui_settings.top,
       left: user_ui_settings.left,
