@@ -18,7 +18,7 @@
     0px 8px 13px rgba(0,0,0,0.3),
     0px 18px 23px rgba(0,0,0,0.3);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Aldrich'
+    font-family: 'Aldrich';
 }
 
 #chip-hack-start-container i {
@@ -51,19 +51,19 @@
     background-color: black;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-family: 'Aldrich'
+    font-family: 'Aldrich';
 }
 
 #chip-game-area {
-    position: fixed;
+    position: absolute;
     margin-top: 0.5vh;
     margin-left: 0.5vw;
-    border: transparent;
-    border-radius: 25px;
-    padding: 3%;
-    top: 17vh;
-    height: 52.5vh;
-    width: 49vw;
+    border: 5px transparent;
+    border-radius: 20px;
+    padding: 3.2%;
+    top: 1vh;
+    height: 52vh;
+    width: 51vw;
     pointer-events: auto;
 }
 
@@ -84,8 +84,10 @@
     left: 49.5%;
     top: 52%;
     transform: translateX(-50%) translateY(-50%);
-    background-image: radial-gradient(circle at center, transparent, #000 3%);
-    background-color: rgba(255, 255, 255, 0.2)
+    background-image: radial-gradient(circle at center, transparent, #000000 3%);
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 2;
+
 }
 
 #chip {
@@ -98,7 +100,8 @@
     padding: 0;
     border: transparent !important;
     background-color: transparent !important;
-    color: #4dcbc2
+    color: #4dcbc2;
+    z-index: 1;
 }
 
 #chip-info-container {
@@ -113,6 +116,8 @@
     text-align: right;
     padding: 0.2vh;
     font-size: 1rem;
+    z-index: 100;
+
 }
 
 #chip-info-container h2 {
@@ -129,6 +134,7 @@
     color: rgba(255,255,255,0.8);
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     padding: 1vh;
+    z-index: 100;
 }
 
 #chip-hack-count {
