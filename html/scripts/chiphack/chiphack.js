@@ -55,10 +55,12 @@ class ChipHack {
     }
 
     randomize_chip_location() {
-        var w = this.game_area.offsetWidth || this.game_area.style.width;
-        var h = this.game_area.offsetHeight || this.game_area.style.height;
-        this.counter_inc.style.top = `${Math.round(Math.random() * h)}px`;
-        this.counter_inc.style.left = `${Math.round(Math.random() * w)}px`;
+        var gameAreaWidth = this.game_area.offsetWidth - this.counter_inc.offsetWidth;
+        var gameAreaHeight = this.game_area.offsetHeight - this.counter_inc.offsetHeight;
+        var randomLeft = Math.floor(Math.random() * gameAreaWidth);
+        var randomTop = Math.floor(Math.random() * gameAreaHeight);
+        this.counter_inc.style.left = `${randomLeft}px`;
+        this.counter_inc.style.top = `${randomTop}px`;
     }
 
     handle_mouse_move(e) {
