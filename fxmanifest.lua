@@ -6,7 +6,7 @@ fx_version 'cerulean'
 
 game 'gta5'
 
-author 'CASE#1993'
+author 'boiidevelopment'
 
 description 'BOII | Development - Utility: UI Elements *(W.I.P)*'
 
