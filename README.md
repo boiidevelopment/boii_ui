@@ -460,6 +460,224 @@ local menu_data = {
 }
 ```
 
+- Action Menu
+
+Styles: 
+
+```javascript
+const action_menu_styles = {
+    // default
+    ['default']: {
+        mainHeaderBackground: 'rgba(31, 30, 30, 0.8)',
+        mainHeaderBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        mainHeaderBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        mainHeaderBorderRadius: '10px',
+        mainHeaderColor: 'rgba(255, 255, 255, 0.8)',
+        mainHeaderFontFamily: 'Roboto',
+        mainHeaderImageBorder: undefined,
+        mainHeaderImageBorderRadius: undefined,
+        mainHeaderImageBoxShadow: undefined,
+        mainHeaderFontSize: '1.0rem',
+        mainHeaderWeight: 600,
+        mainHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionBackground: 'rgba(31, 30, 30, 0.8)',
+        optionBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        optionBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        optionBorderRadius: '10px',
+        optionColor: 'rgba(255, 255, 255, 0.8)',
+        optionFontFamily: 'Roboto',
+        optionHeaderFontSize: '1.0rem',
+        optionMessageFontSize: '1.0rem',
+        optionHeaderWeight: 600,
+        optionMessageWeight: 100,
+        optionImageBorder: undefined,
+        optionImageBorderRadius: undefined,
+        optionImageBoxShadow: undefined,
+        optionHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionHoverBackground: 'rgba(31, 30, 30, 0.8)',
+        optionHoverBoxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.5)',
+        optionHoverColor: 'rgba(255, 255, 255, 1)',
+        buttonBackground: 'rgba(31, 30, 30, 0.8)',
+        buttonBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        buttonBorderRadius: '15px',
+        buttonBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        buttonFontSize: '1.0rem',
+        buttonFontFamily: 'Roboto',
+        buttonFontWeight: 600,
+        buttonColor: 'rgba(255, 255, 255, 0.8)',
+        buttonHoverBackground: 'rgba(31, 30, 30, 0.9)',
+        buttonHoverBoxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.9)',
+        buttonHoverColor: 'rgba(255, 255, 255, 1)'
+    },
+};
+```
+
+Export:
+
+```lua
+exports['boii_ui']:open_action_menu('default', action_menu_data)
+```
+
+Example Menu: 
+
+```lua
+local action_menu_options = {
+    {
+        header = 'Vehicle Options', -- Option header text
+        header_icon = '<i class="fa-solid fa-car"></i>', -- Header font awesome icon
+        message = 'View vehicle actions.', -- Message to display below header
+        --action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        --action = 'boii_ui:cl:submenu_test_event', -- Name of event
+        --params = {}, -- Event params
+        should_close = false, -- Toggle whether event should close the menu ui
+        submenu = {
+            {
+                header = 'Open Garage', -- Sub menu header text
+                action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+                action = 'boii_ui:cl:submenu_test_event', -- Name of event
+                params = {}, -- Event params
+                should_close = false -- Toggle whether event should close the menu ui
+            },
+            {
+                header = 'Store Vehicle',
+                action_type = 'client_event',
+                action = 'boii_ui:cl:submenu_test_event',
+                params = {},
+                should_close = true
+            },
+            {
+                header = 'Check VIN',
+                action_type = 'client_event',
+                action = 'boii_ui:cl:submenu_test_event',
+                params = {},
+                should_close = true
+            }
+        }
+    },
+    {
+        header = 'Payment Options',
+        header_icon = '<i class="fa-solid fa-bank"></i>',
+        message = 'View payment actions.',
+        params = {},
+        should_close = false,
+        submenu = {
+            {
+                header = 'Check Payment Time',
+                action_type = 'client_event',
+                action = 'boii_ui:cl:submenu_test_event',
+                params = {},
+                should_close = false
+            },
+            {
+                header = 'Pay Invoice',
+                action_type = 'client_event',
+                action = 'boii_ui:cl:submenu_test_event',
+                params = {},
+                should_close = true
+            },
+        }
+    },
+}
+
+local action_menu_data = {
+    main_header = {
+        text = 'Action Menu', -- Main header text
+        icon = '<i class="fa-solid fa-cog"></i>' -- Main header icon
+        --image = '/html/assets/images/lspd.png', -- Image to display on main header
+    },
+    menu_options = action_menu_options, -- Menu options this was split and placed above for readability
+    menu_button = { -- Menu button
+        text = 'Exit', -- Button text
+        action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        action = 'boii_ui:cl:menu_test_event', -- Name of event
+        params = {}, -- Event params
+        should_close = true -- Toggle whether event should close the menu ui
+    }
+}
+```
+
+- Input
+
+Styles:
+
+```javascript
+const input_styles = {
+    // default
+    ['default']: {
+        mainHeaderBackground: 'rgba(31, 30, 30, 0.8)',
+        mainHeaderBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        mainHeaderBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        mainHeaderBorderRadius: '10px',
+        mainHeaderColor: 'rgba(255, 255, 255, 0.8)',
+        mainHeaderFontFamily: 'Roboto',
+        mainHeaderImageBorder: undefined,
+        mainHeaderImageBorderRadius: undefined,
+        mainHeaderImageBoxShadow: undefined,
+        mainHeaderFontSize: '1.0rem',
+        mainHeaderWeight: 600,
+        mainHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionBackground: 'rgba(31, 30, 30, 0.8)',
+        optionBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        optionBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        optionBorderRadius: '10px',
+        optionColor: 'rgba(255, 255, 255, 0.8)',
+        optionFontFamily: 'Roboto',
+        optionHeaderFontSize: '1.0rem',
+        optionMessageFontSize: '1.0rem',
+        optionHeaderWeight: 600,
+        optionMessageWeight: 100,
+        optionImageBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        optionImageBorderRadius: '10px',
+        optionImageBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        optionHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
+        optionHoverBackground: 'rgba(31, 30, 30, 0.8)',
+        optionHoverBoxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.5)',
+        optionHoverColor: 'rgba(255, 255, 255, 1)',
+        buttonBackground: 'rgba(31, 30, 30, 0.8)',
+        buttonBorder: '3px solid rgba(0, 0, 0, 0.5)',
+        buttonBorderRadius: '10px',
+        buttonBoxShadow: '0px 0px 4px 0px rgba(0, 0, 0, 0.5)',
+        buttonFontSize: '1.0rem',
+        buttonFontFamily: 'Roboto',
+        buttonFontWeight: 600,
+        buttonColor: 'rgba(255, 255, 255, 0.8)',
+        buttonHoverBackground: 'rgba(31, 30, 30, 0.9)',
+        buttonHoverBoxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.9)',
+        buttonHoverColor: 'rgba(255, 255, 255, 1)'
+    },
+}
+```
+
+Export:
+
+```lua
+exports['boii_ui']:open_input('default', input_data)
+```
+
+Example Input:
+
+```lua
+-- Input example
+local input_data = {
+    main_header = { -- Main menu header
+        text = 'Example Header', -- Header text
+        image = '/html/assets/images/lspd.png', -- Image to display on header. Remove this to use no image
+        icon = '<i class="fa-solid fa-bell"></i>' -- Icon to display next to header text. Remove this to use no icon
+    },
+    input_fields = {
+        id = true, -- Toggle if id input should be displayed
+        value = true, -- Toggle if value input should be displayed
+    },
+    input_button = {
+        text = 'Submit', -- Submit 
+        action_type = 'client_event', -- Type to trigger on click this can be removed. Actions: 'client_event', 'server_event'
+        action = 'boii_ui:cl:input_test_event', -- Name of event to trigger
+        params = {}, -- Event params
+        should_close = true, -- Toggle whether event should close the input ui
+    },
+}
+```
+
 ### PREVIEW
 https://www.youtube.com/watch?v=wauI7hyfrqE
 
