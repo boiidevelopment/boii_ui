@@ -166,34 +166,32 @@ class ActionMenu {
         });
         main_div.appendChild(menu_header_div);
         main_div.appendChild(menu_options_div);
-        if (options.menu_button) {
-            let menu_button_div = create_element('div', 'action-menu-buttons');
-            let close_button = create_element('button', 'action-menu-btn', options.menu_button.close.text);
+        let menu_button_div = create_element('div', 'action-menu-buttons');
+        let close_button = create_element('button', 'action-menu-btn', options.menu_button.text);
+        close_button.style.background = style.buttonBackground;
+        close_button.style.border = style.buttonBorder;
+        close_button.style.borderRadius = style.buttonBorderRadius;
+        close_button.style.boxShadow = style.buttonBoxShadow;
+        close_button.style.fontFamily = style.buttonFontFamily;
+        close_button.style.fontWeight = style.buttonFontWeight;
+        close_button.style.fontSize = style.buttonFontSize;
+        close_button.style.color = style.buttonColor;
+        close_button.addEventListener('click', () => {
+            const { action_type, action, params, should_close } = options.menu_button;
+            $.post(`https://${GetParentResourceName()}/trigger_action_event`, JSON.stringify({ action_type, action, params, should_close }));
+        });
+        close_button.addEventListener('mouseover', () => {
+            close_button.style.background = style.buttonHoverBackground;
+            close_button.style.boxShadow = style.buttonHoverBoxShadow;
+            close_button.style.color = style.buttonHoverColor;
+        });
+        close_button.addEventListener('mouseout', () => {
             close_button.style.background = style.buttonBackground;
-            close_button.style.border = style.buttonBorder;
-            close_button.style.borderRadius = style.buttonBorderRadius;
             close_button.style.boxShadow = style.buttonBoxShadow;
-            close_button.style.fontFamily = style.buttonFontFamily;
-            close_button.style.fontWeight = style.buttonFontWeight;
-            close_button.style.fontSize = style.buttonFontSize;
             close_button.style.color = style.buttonColor;
-            close_button.addEventListener('click', () => {
-                const { action_type, action, params, should_close } = options.menu_button;
-                $.post(`https://${GetParentResourceName()}/trigger_action_event`, JSON.stringify({ action_type, action, params, should_close }));
-            });
-            close_button.addEventListener('mouseover', () => {
-                close_button.style.background = style.buttonHoverBackground;
-                close_button.style.boxShadow = style.buttonHoverBoxShadow;
-                close_button.style.color = style.buttonHoverColor;
-            });
-            close_button.addEventListener('mouseout', () => {
-                close_button.style.background = style.buttonBackground;
-                close_button.style.boxShadow = style.buttonBoxShadow;
-                close_button.style.color = style.buttonColor;
-            });
-            menu_button_div.appendChild(close_button);
-            main_div.appendChild(menu_button_div);
-        }
+        });
+        menu_button_div.appendChild(close_button);
+        main_div.appendChild(menu_button_div);
     }
 
     close_menu() {
