@@ -95,6 +95,8 @@ const context_styles = {
 class ContextMenu {
     constructor(context_styles) {
         this.context_styles = context_styles;
+        this.main_div = document.getElementById('context_menu_container');
+        this.main_div.style.zIndex = 1;
     }
 
     create_menu(type, options) {
@@ -103,8 +105,7 @@ class ContextMenu {
     }
 
     build_menu(style, options) {
-        let main_div = document.getElementById('context-menu-container');
-        main_div.innerHTML = '';
+        this.main_div.innerHTML = '';
         let menu_header_div = create_element('div', 'menu-header');
         let menu_options_div = create_element('div', 'menu-options');
         if (options.main_header !== undefined) {
@@ -184,8 +185,8 @@ class ContextMenu {
             menu_option.style.fontFamily = style.optionFontFamily;
             menu_options_div.appendChild(menu_option);
         });
-        main_div.appendChild(menu_header_div);
-        main_div.appendChild(menu_options_div);
+        this.main_div.appendChild(menu_header_div);
+        this.main_div.appendChild(menu_options_div);
         if (options.menu_buttons) {
             let menu_buttons_div = create_element('div', 'menu-buttons');
             if (options.menu_buttons.close && options.menu_buttons.close.use) {
@@ -214,12 +215,13 @@ class ContextMenu {
                 });
                 menu_buttons_div.appendChild(close_button);
             }
-            main_div.appendChild(menu_buttons_div);
+            this.main_div.appendChild(menu_buttons_div);
         }
     }
 
     close_menu() {
-        let main_div = document.getElementById('context-menu-container');
-        main_div.innerHTML = '';
+        this.main_div.style.zIndex = -1;
+        this.main_div.innerHTML = '';
+        $.post(`https://${GetParentResourceName()}/close_menu`, JSON.stringify({}));
     }
 }
