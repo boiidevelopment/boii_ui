@@ -10,7 +10,7 @@ author 'boiidevelopment'
 
 description 'BOII | Development - Utility: UI Elements *(W.I.P)*'
 
-version '0.0.6'
+version '0.0.7'
 
 lua54 'yes'
 
