@@ -51,6 +51,8 @@ const action_menu_styles = {
 class ActionMenu {
     constructor(action_menu_styles) {
         this.action_menu_styles = action_menu_styles;
+        this.main_div = document.getElementById('context_menu_container');
+        this.main_div.style.zIndex = 1;
     }
 
     create_menu(type, options) {
@@ -68,8 +70,7 @@ class ActionMenu {
     }
 
     build_menu(style, options) {
-        let main_div = document.getElementById('action_menu_container');
-        main_div.innerHTML = '';
+        this.main_div.innerHTML = '';
         let menu_header_div = create_element('div', 'action-menu-header');
         let menu_options_div = create_element('div', 'action-menu-options');
         if (options.main_header !== undefined) {
@@ -164,8 +165,8 @@ class ActionMenu {
             }
             menu_options_div.appendChild(menu_option);
         });
-        main_div.appendChild(menu_header_div);
-        main_div.appendChild(menu_options_div);
+        this.main_div.appendChild(menu_header_div);
+        this.main_div.appendChild(menu_options_div);
         let menu_button_div = create_element('div', 'action-menu-buttons');
         let close_button = create_element('button', 'action-menu-btn', options.menu_button.text);
         close_button.style.background = style.buttonBackground;
@@ -191,12 +192,12 @@ class ActionMenu {
             close_button.style.color = style.buttonColor;
         });
         menu_button_div.appendChild(close_button);
-        main_div.appendChild(menu_button_div);
+        this.main_div.appendChild(menu_button_div);
     }
 
     close_menu() {
-        let main_div = document.getElementById('action_menu_container');
-        main_div.innerHTML = '';
+        this.main_div.style.zIndex = -1;
+        this.main_div.innerHTML = '';
         $.post(`https://${GetParentResourceName()}/close_action_menu`, JSON.stringify({}));
     }
 }
