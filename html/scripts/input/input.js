@@ -46,50 +46,6 @@ const input_styles = {
         buttonHoverBoxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.9)',
         buttonHoverColor: 'rgba(255, 255, 255, 1)'
     },
-
-    // lspd example
-    ['lspd']: {
-        mainHeaderBackground: 'rgba(31, 30, 30, 0.8)',
-        mainHeaderBoxShadow: '0px 0px 4px 0px rgba(19, 93, 216, 0.8)',
-        mainHeaderBorder: '1px solid rgba(19, 93, 216, 0.8)',
-        mainHeaderBorderRadius: '10px',
-        mainHeaderColor: 'rgba(255, 255, 255, 0.8)',
-        mainHeaderFontFamily: 'Orbitron',
-        mainHeaderImageBorder: '2px solid rgba(19, 93, 216, 0.8)',
-        mainHeaderImageBorderRadius: '50%',
-        mainHeaderImageBoxShadow: '0px 0px 4px 0px rgba(19, 93, 216, 0.8)',
-        mainHeaderFontSize: '1.0rem',
-        mainHeaderWeight: 600,
-        mainHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
-        optionBackground: 'rgba(31, 30, 30, 0.8)',
-        optionBoxShadow: '0px 0px 4px 0px rgba(19, 93, 216, 0.8)',
-        optionBorder: '1px solid rgba(19, 93, 216, 0.8)',
-        optionBorderRadius: '10px',
-        optionColor: 'rgba(255, 255, 255, 0.8)',
-        optionFontFamily: 'Orbitron',
-        optionHeaderFontSize: '1.0rem',
-        optionMessageFontSize: '1.0rem',
-        optionHeaderWeight: 600,
-        optionMessageWeight: 100,
-        optionImageBorder: '2px solid rgba(19, 93, 216, 0.8)',
-        optionImageBorderRadius: '50%',
-        optionImageBoxShadow: '0px 0px 4px 0px rgba(19, 93, 216, 0.8)',
-        optionHeaderShadow: '0px 0px 8px 0px rgba(31, 30, 30, 0.8)',
-        optionHoverBackground: 'rgba(31, 30, 30, 0.8)',
-        optionHoverBoxShadow: '0px 0px 5px 0px rgba(19, 93, 216, 1)',
-        optionHoverColor: 'rgba(255, 255, 255, 1)',
-        buttonBackground: 'rgba(31, 30, 30, 0.8)',
-        buttonBorder: '1px solid rgba(19, 93, 216, 1.0)',
-        buttonBorderRadius: '10px',
-        buttonBoxShadow: '0px 0px 4px 0px rgba(19, 93, 216, 0.8)',
-        buttonFontSize: '1.0rem',
-        buttonFontFamily: 'Orbitron',
-        buttonFontWeight: 600,
-        buttonColor: 'rgba(255, 255, 255, 0.8)',
-        buttonHoverBackground: 'rgba(31, 30, 30, 0.8)',
-        buttonHoverBoxShadow: '0px 0px 5px 0px rgba(19, 93, 216, 1)',
-        buttonHoverColor: 'rgba(255, 255, 255, 1)'
-    },
 };
 
 class Input {
@@ -177,24 +133,22 @@ class Input {
         input_button.style.fontSize = style.buttonFontSize;
         input_button.style.color = style.buttonColor;
         const { action_type, action, params, should_close } = options.input_button;
-
         input_button.addEventListener('click', () => {
-            const dataToSend = { action_type, action, params, should_close }; // line 180
+            const data_to_send = { action_type, action, params, should_close }; // line 180
             if (input_element_value && input_element_value.value.trim() !== "") {
                 dataToSend.value = input_element_value.value;
             }
             if (input_element_id && input_element_id.value.trim() !== "") {
-                dataToSend.id = input_element_id.value;
+                data_to_send.id = input_element_id.value;
             }
-            if (Object.keys(dataToSend).length > 4) {
-                $.post(`https://${GetParentResourceName()}/submit_input`, JSON.stringify(dataToSend));
+            if (Object.keys(data_to_send).length > 4) {
+                $.post(`https://${GetParentResourceName()}/submit_input`, JSON.stringify(data_to_send));
                 this.close_input();
             } else {
                 this.close_input();
                 return;
             }
         });
-
         input_button.addEventListener('mouseover', () => {
             input_button.style.background = style.buttonHoverBackground;
             input_button.style.boxShadow = style.buttonHoverBoxShadow;
@@ -215,28 +169,3 @@ class Input {
         $.post(`https://${GetParentResourceName()}/close_input`, JSON.stringify({}));
     }
 }
-
-/*
-const input_data = {
-    main_header: {
-        text: 'Example Header',
-        image: '/html/assets/images/lspd.png',
-        icon: '<i class="fa-solid fa-bell"></i>',
-    },
-    input_fields: {
-        id: true,
-        value: true,
-    },
-    input_button: {
-        use: true,
-        text: 'Submit',
-        action_type: 'client_event',
-        action: 'boii_ui:cl:input_test_event',
-        params: {},
-        should_close: true,
-    }
-};
-
-const testInput = new Input(input_styles);
-testInput.create_input('default', input_data);
-*/
