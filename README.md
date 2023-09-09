@@ -462,6 +462,8 @@ local menu_data = {
 
 - Action Menu
 
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/c58a2a8d-2572-4148-a6c5-07c780d16162)
+
 Styles: 
 
 ```javascript
@@ -597,6 +599,8 @@ local action_menu_data = {
 ```
 
 - Input
+
+![image](https://github.com/boiidevelopment/boii_ui/assets/90377400/89f8e26f-f6fc-4e08-b4db-ff660b367025)
 
 Styles:
 
