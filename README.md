@@ -682,6 +682,23 @@ local input_data = {
 }
 ```
 
+- Keypress minigame
+
+Styles: 
+
+will be added in next update
+
+Export:
+```lua
+exports['boii_ui']:keypress('Press the keys in time to get back up!' --[[message]], 10 --[[time in seconds]], 2--[[difficulty]], function(success)
+        if success then
+            print('keypress success')
+        else
+            print('keypress failed')
+        end
+    end)
+```
+
 ### PREVIEW
 https://www.youtube.com/watch?v=wauI7hyfrqE
 
