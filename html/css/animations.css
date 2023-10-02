@@ -37,3 +37,9 @@
     70% {-webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);-webkit-transform: translate3d(0, -15px, 0);transform: translate3d(0, -15px, 0)}
     90% {-webkit-transform: translate3d(0,-4px,0);transform: translate3d(0,-4px,0)}
 }
+
+@keyframes flash {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1; }
+}
