@@ -43,7 +43,7 @@ Immersive Experience: Crafted to provide a rich and engaging user interface, ele
 https://docs.boii.dev/fivem/free-resources/boii_ui
 
 ### PREVIEW
-coming soon
+https://www.youtube.com/watch?v=8ga-YqNp9U0
 
 ### SUPPORT
 https://discord.gg/boiidevelopment
