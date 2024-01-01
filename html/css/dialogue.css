@@ -1,0 +1,99 @@
+.dialogue_wrapper {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialogue_container {
+    background-color: rgba(31, 30, 30, 0.9);
+    border: 3px solid rgb(180, 180, 180);
+    border-radius: 15px;
+    color: rgb(180, 180, 180);
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    animation: fade 2s;
+    margin: 1%;
+    font-family: 'Roboto';
+    position: relative;
+}
+
+.dialogue_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.dialogue_header_content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dialogue_header_image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.dialogue_header_text {
+    font-weight: bold;
+}
+
+.dialogue_close_button {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.dialogue_close_button:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.dialogue_response {
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dialogue_options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    position: relative;
+    padding-top: 12px;
+}
+
+.dialogue_options::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.dialogue_option {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.dialogue_option:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
