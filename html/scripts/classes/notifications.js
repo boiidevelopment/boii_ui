@@ -11,10 +11,10 @@ const notification_styles = {
             background: '#1f1e1e',
             border_size: '3px',
             border_style: 'solid',
-            border_colour: '#4dcbc2',
+            border_colour: '#2a0800',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     staff: {
@@ -28,7 +28,7 @@ const notification_styles = {
             border_colour: '#4dcbc2',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     general: {
@@ -42,7 +42,7 @@ const notification_styles = {
             border_colour: '#b4b4b4',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     warning: {
@@ -56,7 +56,7 @@ const notification_styles = {
             border_colour: '#ffa500',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     error: {
@@ -70,7 +70,7 @@ const notification_styles = {
             border_colour: '#ff0000',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     success: {
@@ -84,7 +84,7 @@ const notification_styles = {
             border_colour: '#00ff00',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     information: {
@@ -98,7 +98,7 @@ const notification_styles = {
             border_colour: '#800080',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     police: {
@@ -112,7 +112,7 @@ const notification_styles = {
             border_colour: '#0000ff',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
     ems: {
@@ -126,7 +126,7 @@ const notification_styles = {
             border_colour: '#ffb6c1',
             border_radius: '15px',
             colour: '#b4b4b4',
-            animation: 'fade 2s',
+            animation: '1s',
         }
     },
 };
@@ -136,16 +136,16 @@ class NotificationManager {
         this.styles = notification_styles;
         this.notifications_enabled = true;
         this.custom_styles = {};
-        this.position = { top: '10px', left: '1585px' };
-        this.alignment = 'flex-end';
+        this.position = { top: '10px', left: '10px' };
+        this.alignment = 'flex-start';
         this.load_user_settings();
         this.create_notification_container();
     }
 
     load_user_settings() {
-        this.notifications_enabled = localStorage.getItem('notifications_enabled') === 'true' || true;
+        this.notifications_enabled = localStorage.getItem('notifications_enabled') !== 'false';
         const user_styles = localStorage.getItem('custom_notification_style');
-        const user_position = localStorage.getItem('notification_position');
+        const user_position = localStorage.getItem('notification_container_position');
         const user_alignment = localStorage.getItem('notification_alignment');
         if (user_styles) {
             try {
@@ -170,14 +170,16 @@ class NotificationManager {
                 'position': 'fixed',
                 'top': this.position.top,
                 'left': this.position.left,
-                'align-items': this.alignment
+                'align-items': this.alignment,
+                'z-index': 2000
             });
             $('body').append(container);
         } else {
             $('.notification_container').css({
                 'top': this.position.top,
                 'left': this.position.left,
-                'align-items': this.alignment
+                'align-items': this.alignment,
+                'z-index': 2000
             });
         }
     }
@@ -233,8 +235,10 @@ class NotificationManager {
     }
 }
 
-
+/*
 $(document).ready(function() {
     const notif_manager = new NotificationManager();
-    notif_manager.show_all_notifications();
+    notif_manager.create_notification('success', 'Test', 'test test test', 120000);
+    //notif_manager.show_all_notifications();
 });
+*/
