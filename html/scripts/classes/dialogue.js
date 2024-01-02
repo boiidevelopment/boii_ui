@@ -1,6 +1,6 @@
 class DialogueManager {
     constructor() {
-        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' };
+        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' };
         this.custom_style = {};
         this.data = null;
         this.load_user_settings();
@@ -61,6 +61,18 @@ class DialogueManager {
             this.build_header(container, data.header);
             this.build_response(container, data.conversation[0]);
             this.build_options(container, data.conversation[0].options);
+            const vignette_colour = this.custom_style.vignette_colour || this.default_style.vignette_colour;
+            $('#main_container').css({
+                'position': 'relative',
+            }).append($('<div>').addClass('dialogue_vignette').css({
+                'position': 'absolute',
+                'top': 0,
+                'left': 0,
+                'right': 0,
+                'bottom': 0,
+                'pointer-events': 'none',
+                'background': `radial-gradient(circle, transparent, ${vignette_colour})`
+            }));
         }
     }
 
