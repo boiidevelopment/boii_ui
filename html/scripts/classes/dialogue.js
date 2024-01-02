@@ -30,6 +30,7 @@ class DialogueManager {
     }
 
     close() {
+        $('#main_container').empty();
         $('.dialogue_wrapper').empty();
         $.post(`https://${GetParentResourceName()}/close_dialogue`, JSON.stringify({}));
     }
