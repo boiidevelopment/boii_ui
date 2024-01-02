@@ -16,7 +16,7 @@ class Settings {
             progress: { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
             context_container_position: { top: '150px', left: '1040px' },
             context: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
-            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' }
+            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' }
         };
 
         this.app_translations = { current: {} };
@@ -497,6 +497,7 @@ class Settings {
             const border_radius = $('#border_radius_input').val() + 'px';
             const bg_colour = $('#background_colour_input').val();
             const text_colour = $('#text_colour_input').val();
+            const vignette_colour = $('#vignette_colour_input').val();
             const anim_duration = $('#animation_duration_input').val() + 's';
             this.apply_customizations({
                 class: 'dialogue',
@@ -508,7 +509,8 @@ class Settings {
                 border_style: border_style,
                 border_colour: border_colour,
                 border_radius: border_radius,
-                animation_duration: anim_duration
+                animation_duration: anim_duration,
+                vignette_colour: vignette_colour
             });
             this.update_preview_dialogue();
         });
@@ -741,6 +743,7 @@ class Settings {
         const border_size_val = current_style.border ? parseInt(current_style.border) : 3;
         const border_rad_val = current_style.border_radius ? parseInt(current_style.border_radius) : 5;
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
+        const vignette_colour = current_style.vignette_colour || '#000000';
         const bg_colour = current_style.background || '#000000';
         const text_colour = current_style.colour || '#000000';
         const border_colour = current_style.border_colour || '#000000';
@@ -755,6 +758,7 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
+                ${this.create_color_picker("vignette_colour", "vignette_colour_input", vignette_colour, true)}
                 ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
                 ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
