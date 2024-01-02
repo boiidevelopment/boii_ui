@@ -137,7 +137,7 @@ class DialogueManager {
             this.close();
         }
         if (option.action_type && option.action) {
-            $.post(`https://${GetParentResourceName()}/dialogue_option_selected`, JSON.stringify({
+            $.post(`https://${GetParentResourceName()}/trigger_event`, JSON.stringify({
                 action_type: option.action_type,
                 action: option.action,
                 params: option.params || {}
