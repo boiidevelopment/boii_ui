@@ -1150,8 +1150,10 @@ class Settings {
 
 }
 
+/*
 // Uncomment this to live preview edit
 $(document).ready(function() {
     const settings_class = new Settings();
     settings_class.init();
 });
+*/
