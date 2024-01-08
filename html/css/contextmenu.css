@@ -1,6 +1,5 @@
 .context_container {
-    min-width: 300px;
-    max-width: 400px;
+    width: 300px;
     z-index: 1000;
     font-family: 'Roboto';
     position: absolute;
