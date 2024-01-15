@@ -13,7 +13,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#2a0800',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -27,7 +27,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#4dcbc2',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -41,7 +41,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#b4b4b4',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -55,7 +55,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#ffa500',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -69,7 +69,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#ff0000',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -83,7 +83,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#00ff00',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -97,7 +97,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#800080',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -111,7 +111,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#0000ff',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -125,7 +125,7 @@ const notification_styles = {
             border_style: 'solid',
             border_colour: '#ffb6c1',
             border_radius: '15px',
-            colour: '#b4b4b4',
+            text_colour: '#b4b4b4',
             animation: '1s',
         }
     },
@@ -184,7 +184,11 @@ class NotificationManager {
         }
     }
 
-    create_notification(type, header, message, duration = 3500) {
+    create_notification(data) {
+        let type = data.type || 'general';
+        let header = data.header || 'No header was provided';
+        let message = data.message || 'No message was provided';
+        let duration = data.duration || 3500;
         if (!this.notifications_enabled) {
             console.log("Notifications are disabled.");
             return;
@@ -200,7 +204,7 @@ class NotificationManager {
         const notification_style = {
             'border-radius': style.border_radius,
             'border': border,
-            'color': style.colour,
+            'color': style.text_colour,
             'background': style.background,
             'animation': 'fade '+ style.animation
         };
