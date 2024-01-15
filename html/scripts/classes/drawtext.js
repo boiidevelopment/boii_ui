@@ -1,6 +1,6 @@
 class DrawTextManager {
     constructor() {
-        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '2s' },
+        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '2s' },
         this.custom_style = {};
         this.draw_text_position = { top: '500px', left: '10px' };
         this.draw_text_alignment = 'flex-start';
@@ -54,7 +54,7 @@ class DrawTextManager {
         const icon_html = icon ? `<i class="${icon}"></i>` : '';
         const border =  `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const draw_text_html = `
-            <div class="draw_text" style="color: ${style.colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
+            <div class="draw_text" style="color: ${style.text_colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
                 <div class="draw_text_header">${icon_html} ${header}</div>
                 <div class="draw_text_message">${message}</div>
             </div>
