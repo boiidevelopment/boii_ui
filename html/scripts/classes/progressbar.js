@@ -1,6 +1,6 @@
 class Progressbar {
     constructor() {
-        this.default_style = { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' };
+        this.default_style = { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' };
         this.custom_style = {};
         this.progress_container_position = { top: '900px', left: '690px' };
         this.load_user_settings();
@@ -45,7 +45,7 @@ class Progressbar {
         const style = this.custom_style;
         const border_style = `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const progress_html = `
-            <div class="progress_bar" style="color: ${style.colour}; background-color: ${style.background}; border: ${border_style}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
+            <div class="progress_bar" style="color: ${style.text_colour}; background-color: ${style.background}; border: ${border_style}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
                 <div class="progress_bar_header"><i class="${icon}"></i> ${header}</div>
                 <div class="progress_bar_body" style="background-color: ${style.bar_background}; border-radius: ${style.border_radius}">
                     <div class="progress_bar_fill" style="width: 0%; background-color: ${style.bar_fill}; transition: width ${duration}ms linear; border-radius: ${style.border_radius}"></div>
