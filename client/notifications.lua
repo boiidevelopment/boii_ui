@@ -9,12 +9,12 @@
 -- Function to send notifications
 local function notify(type, header, message, duration)
     SendNUIMessage({
-      action = 'notify',
-      notification = {
-            type = type,
-            header = header,
-            message = message,
-            duration = duration
+        action = 'create_notification',
+        notification = {
+            type = options.type,
+            header = options.header,
+            message = options.message,
+            duration = options.duration
         }
     })
 end
@@ -24,8 +24,8 @@ end
 ]]
 
 -- Event to send notifications
-RegisterNetEvent('boii_ui:notify', function(type, header, message, duration)
-    notify(type, header, message, duration)
+RegisterNetEvent('boii_ui:notify', function(options)
+    notify(options)
 end)
 
 --[[
@@ -37,20 +37,20 @@ exports('notify', notify)
     TEST STUFF
 ]]
 local notification_types = {
-    { type = 'system', header = 'System Alert', message = 'This is a system alert notification.' },
-    { type = 'staff', header = 'Staff Message', message = 'This is a staff message.' },
-    { type = 'general', header = 'General', message = 'This is a general notification.' },
-    { type = 'warning', header = 'Warning', message = 'This is a warning notification.' },
-    { type = 'error', header = 'Error', message = 'This is an error notification.' },
-    { type = 'success', header = 'Success', message = 'This is a success notification.' },
-    { type = 'information', header = 'Information', message = 'This is an information notification.' },
-    { type = 'police', header = 'Police Alert', message = 'This is a police notification.' },
-    { type = 'ems', header = 'EMS Alert', message = 'This is an EMS notification.' }
+    { type = 'system', header = 'System Alert', message = 'This is a system alert notification.', duration = 10000 },
+    { type = 'staff', header = 'Staff Message', message = 'This is a staff message.', duration = 10000 },
+    { type = 'general', header = 'General', message = 'This is a general notification.', duration = 10000 },
+    { type = 'warning', header = 'Warning', message = 'This is a warning notification.', duration = 10000 },
+    { type = 'error', header = 'Error', message = 'This is an error notification.', duration = 10000 },
+    { type = 'success', header = 'Success', message = 'This is a success notification.', duration = 10000 },
+    { type = 'information', header = 'Information', message = 'This is an information notification.', duration = 10000 },
+    { type = 'police', header = 'Police Alert', message = 'This is a police notification.', duration = 10000 },
+    { type = 'ems', header = 'EMS Alert', message = 'This is an EMS notification.', duration = 10000 }
 }
 
 local function send_notification_sequence()
     for _, notification in ipairs(notification_types) do
-        notify(notification.type, notification.header, notification.message, 15000)
+        notify(notification)
         Wait(1000)
     end
 end
