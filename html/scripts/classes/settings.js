@@ -8,15 +8,15 @@ class Settings {
             notifications_enabled: true,
             notification_dummy: 'system',
             notification_alignment: 'left',
-            notification_container_position: { top: '10px', left: '1585px' },
-            draw_text: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
+            notification_container_position: { top: '10px', left: '10px' },
+            draw_text: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
             draw_text_alignment: 'left',
             draw_text_container_position: { top: '500px', left: '10px' },
             progress_container_position: { top: '850px', left: '540px' },
-            progress: { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
+            progress: { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
             context_container_position: { top: '150px', left: '1040px' },
-            context: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
-            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' }
+            context: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
+            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' }
         };
 
         this.app_translations = { current: {} };
@@ -68,13 +68,17 @@ class Settings {
     load_settings() {
         Object.keys(this.settings).forEach(setting => {
             const local_storage_value = localStorage.getItem(setting);
-            if (local_storage_value !== null) {
-                try {
+        if (local_storage_value !== null) {
+            try {
+                if (setting === 'notifications_enabled' || setting === 'dark_mode') {
+                    this.settings[setting] = local_storage_value === 'true';
+                } else {
                     this.settings[setting] = JSON.parse(local_storage_value) || local_storage_value;
-                } catch (e) {
-                    this.settings[setting] = local_storage_value;
                 }
+            } catch (e) {
+                this.settings[setting] = local_storage_value;
             }
+        }
             const custom_style_key = `custom_${setting}_style`;
             const user_custom_style = localStorage.getItem(custom_style_key);
             if (user_custom_style) {
@@ -289,15 +293,15 @@ class Settings {
             notifications_enabled: true,
             notification_dummy: 'system',
             notification_alignment: 'left',
-            notification_container_position: { top: '10px', left: '1585px' },
-            draw_text: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
+            notification_container_position: { top: '10px', left: '10px' },
+            draw_text: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
             draw_text_alignment: 'left',
             draw_text_container_position: { top: '500px', left: '10px' },
             progress_container_position: { top: '850px', left: '540px' },
-            progress: { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
+            progress: { background: '#1f1e1e', bar_background: '#ffffff', bar_fill: '#4dcbc2', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
             context_container_position: { top: '150px', left: '1040px' },
-            context: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' },
-            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s' }
+            context: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s' },
+            dialogue: { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' }
         };
         this.init();
     }
@@ -336,15 +340,15 @@ class Settings {
         `;
     }
 
-    create_color_picker(label, id, color, hidden = false) {
+    create_colour_picker(label, id, colour, hidden = false) {
         const hidden_class = hidden ? 'hidden' : '';
         return `
             <div class="content_item ${hidden_class}">
                 <span class="menu_label">
                     <span data-translate="${label}">${label}</span>
                     <div class="colour_picker_wrapper">
-                        <div class="colour_display" id="${id}_display" style="background-color: ${color};"></div>
-                        <input type="color" id="${id}" class="colour_input" value="${color}">
+                        <div class="colour_display" id="${id}_display" style="background-color: ${colour};"></div>
+                        <input type="color" id="${id}" class="colour_input" value="${colour}">
                     </div>
                 </span>
             </div>
@@ -430,13 +434,14 @@ class Settings {
                 selector += `.${options.type}`;
                 style_data = style_data[options.type].style;
             }
+            console.log('text colour: '+ settings.text_colour)
             $(selector).each(function() {
                 if (settings.background) {
                     $(this).css('background-color', settings.background);
                 }
                 if (settings.text_colour) {
                     $(this).css('color', settings.text_colour);
-                }
+                }                
                 if (settings.border_size && settings.border_style && settings.border_colour) {
                     $(this).css('border', `${settings.border_size} ${settings.border_style} ${settings.border_colour}`);
                 }
@@ -510,7 +515,7 @@ class Settings {
                 border_colour: border_colour,
                 border_radius: border_radius,
                 animation_duration: anim_duration,
-                vignette_colour: vignette_colour
+                vignette_colour: vignette_colour,
             });
             this.update_preview_dialogue();
         });
@@ -673,7 +678,7 @@ class Settings {
             'background-color': style.background,
             'border': border,
             'border-radius': style.border_radius,
-            'color': style.colour,
+            'color': style.text_colour,
             'animation': 'fade '+ style.animation,
         });
         context_container.find('input, button, .menu_option').addClass('disabled').prop('disabled', true);
@@ -691,7 +696,7 @@ class Settings {
         const border_rad_val = current_style.border_radius ? parseInt(current_style.border_radius) : 5;
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
         const bg_colour = current_style.background || '#000000';
-        const text_colour = current_style.colour || '#000000';
+        const text_colour = current_style.text_colour || '#000000';
         const border_colour = current_style.border_colour || '#000000';
         const border_match = current_style.border ? current_style.border.match(/(solid|dotted|dashed|double|groove|ridge|inset|outset|none|hidden)/) : null;
         const border_style = border_match ? border_match[0] : 'solid';
@@ -708,11 +713,11 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
-                ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
-                ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
+                ${this.create_colour_picker("background_colour", "background_colour_input", bg_colour, true)}
+                ${this.create_colour_picker("text_colour", "text_colour_input", text_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
                 ${this.create_border_style_dropdown("border_style", "border_style_input", border_style, true)}
-                ${this.create_color_picker("border_colour", "border_colour_input", border_colour, true)}
+                ${this.create_colour_picker("border_colour", "border_colour_input", border_colour, true)}
                 ${this.create_number_input("border_radius", "border_radius_input", border_rad_val, 0, 20, 1, true)}
                 ${this.create_number_input("animation_duration", "animation_duration_input", anim_duration_val, 1, 10, 0.5, true)}
                 ${this.create_settings_button("save", "save_context_customization", "fa-solid fa-plus", true)}
@@ -745,7 +750,7 @@ class Settings {
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
         const vignette_colour = current_style.vignette_colour || '#000000';
         const bg_colour = current_style.background || '#000000';
-        const text_colour = current_style.colour || '#000000';
+        const text_colour = current_style.text_colour || '#000000';
         const border_colour = current_style.border_colour || '#000000';
         const border_match = current_style.border ? current_style.border.match(/(solid|dotted|dashed|double|groove|ridge|inset|outset|none|hidden)/) : null;
         const border_style = border_match ? border_match[0] : 'solid';
@@ -758,12 +763,12 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
-                ${this.create_color_picker("vignette_colour", "vignette_colour_input", vignette_colour, true)}
-                ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
-                ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
+                ${this.create_colour_picker("vignette_colour", "vignette_colour_input", vignette_colour, true)}
+                ${this.create_colour_picker("background_colour", "background_colour_input", bg_colour, true)}
+                ${this.create_colour_picker("text_colour", "text_colour_input", text_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
                 ${this.create_border_style_dropdown("border_style", "border_style_input", border_style, true)}
-                ${this.create_color_picker("border_colour", "border_colour_input", border_colour, true)}
+                ${this.create_colour_picker("border_colour", "border_colour_input", border_colour, true)}
                 ${this.create_number_input("border_radius", "border_radius_input", border_rad_val, 0, 20, 1, true)}
                 ${this.create_number_input("animation_duration", "animation_duration_input", anim_duration_val, 1, 10, 0.5, true)}
                 ${this.create_settings_button("save", "save_dialogue_customization", "fa-solid fa-plus", true)}
@@ -789,9 +794,9 @@ class Settings {
         const body_text = 'Press E to view your stored vehicles.';
         const border =  `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const draw_text_html = `
-            <div class="draw_text" style="background-color: ${style.background}; border: ${border}; color: ${style.colour}; animation: ${style.animation};">
-                <div class="draw_text_header" style="color: ${style.colour};"><i class="${icon}"></i> ${header_text}</div>
-                <div class="draw_text_body" style="color: ${style.colour};">${body_text}</div>
+            <div class="draw_text" style="background-color: ${style.background}; border: ${border}; color: ${style.text_colour}; animation: ${style.animation};">
+                <div class="draw_text_header" style="color: ${style.text_colour};"><i class="${icon}"></i> ${header_text}</div>
+                <div class="draw_text_body" style="color: ${style.text_colour};">${body_text}</div>
             </div>
         `;
         $('.draw_text_preview').html(draw_text_html);
@@ -838,9 +843,9 @@ class Settings {
         const style = this.settings.draw_text
         const border =  `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const draw_text_html = `
-            <div class="draw_text" style="background-color: ${style.background}; border: ${border}; color: ${style.colour}; animation: ${style.animation};">
-                <div class="draw_text_header" style="color: ${style.colour};"><i class="fa-solid fa-car"></i> Open Garage</div>
-                <div class="draw_text_body" style="color: ${style.colour};">Press E to view your stored vehicles.</div>
+            <div class="draw_text" style="background-color: ${style.background}; border: ${border}; color: ${style.text_colour}; animation: ${style.animation};">
+                <div class="draw_text_header" style="color: ${style.text_colour};"><i class="fa-solid fa-car"></i> Open Garage</div>
+                <div class="draw_text_body" style="color: ${style.text_colour};">Press E to view your stored vehicles.</div>
             </div>
         `;
         draw_text_container.html(draw_text_html);
@@ -852,7 +857,7 @@ class Settings {
         const border_rad_val = current_style.border_radius ? parseInt(current_style.border_radius) : 5;
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
         const bg_colour = current_style.background || '#000000';
-        const text_colour = current_style.colour || '#000000';
+        const text_colour = current_style.text_colour || '#000000';
         const border_colour = current_style.border_colour || '#000000';
         const border_match = current_style.border ? current_style.border.match(/(solid|dotted|dashed|double|groove|ridge|inset|outset|none|hidden)/) : null;
         const border_style = border_match ? border_match[0] : 'solid';
@@ -873,11 +878,11 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
-                ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
-                ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
+                ${this.create_colour_picker("background_colour", "background_colour_input", bg_colour, true)}
+                ${this.create_colour_picker("text_colour", "text_colour_input", text_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
                 ${this.create_border_style_dropdown("border_style", "border_style_input", border_style, true)}
-                ${this.create_color_picker("border_colour", "border_colour_input", border_colour, true)}
+                ${this.create_colour_picker("border_colour", "border_colour_input", border_colour, true)}
                 ${this.create_number_input("border_radius", "border_radius_input", border_rad_val, 0, 20, 1, true)}
                 ${this.create_number_input("animation_duration", "animation_duration_input", anim_duration_val, 1, 10, 0.5, true)}
                 ${this.create_settings_button("save", "save_draw_text_customization", "fa-solid fa-plus", true)}
@@ -941,9 +946,9 @@ class Settings {
         const header_text = this.settings.notification['system'].header_text;
         const body_text = this.settings.notification['system'].message;
         const notification_html = `
-            <div class="notification" style="background-color: ${style.background}; border: ${style.border}; color: ${style.colour}; animation: ${style.animation};">
-                <div class="notification_header" style="color: ${style.colour};"><i class="${icon}"></i> ${header_text}</div>
-                <div class="notification_body" style="color: ${style.colour};">${body_text}</div>
+            <div class="notification" style="background-color: ${style.background}; border: ${style.border}; color: ${style.text_colour}; animation: ${style.animation};">
+                <div class="notification_header" style="color: ${style.text_colour};"><i class="${icon}"></i> ${header_text}</div>
+                <div class="notification_body" style="color: ${style.text_colour};">${body_text}</div>
             </div>
         `;
         notif_container.html(notification_html);
@@ -956,9 +961,9 @@ class Settings {
         const message = this.settings.notification[type].message;
         const border =  `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const notification_html = `
-            <div class="notification" style="background-color: ${style.background}; border: ${border}; color: ${style.colour}; animation: ${style.animation};">
-                <div class="notification_header" style="color: ${style.colour};"><i class="${icon}"></i> ${header_text}</div>
-                <div class="notification_body" style="color: ${style.colour};">${message}</div>
+            <div class="notification" style="background-color: ${style.background}; border: ${border}; color: ${style.text_colour}; animation: ${style.animation};">
+                <div class="notification_header" style="color: ${style.text_colour};"><i class="${icon}"></i> ${header_text}</div>
+                <div class="notification_body" style="color: ${style.text_colour};">${message}</div>
             </div>
         `;
         $('.notification_preview').html(notification_html);
@@ -970,7 +975,7 @@ class Settings {
         const border_rad_val = current_style.border_radius ? parseInt(current_style.border_radius) : 5;
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
         const bg_colour = current_style.background || '#000000';
-        const text_colour = current_style.colour || '#000000';
+        const text_colour = current_style.text_colour || '#000000';
         const border_colour = current_style.border_colour || '#000000';
         const border_match = current_style.border ? current_style.border.match(/(solid|dotted|dashed|double|groove|ridge|inset|outset|none|hidden)/) : null;
         const border_style = border_match ? border_match[0] : 'solid';
@@ -1007,11 +1012,11 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
-                ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
-                ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
+                ${this.create_colour_picker("background_colour", "background_colour_input", bg_colour, true)}
+                ${this.create_colour_picker("text_colour", "text_colour_input", text_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
                 ${this.create_border_style_dropdown("border_style", "border_style_input", border_style, true)}
-                ${this.create_color_picker("border_colour", "border_colour_input", border_colour, true)}
+                ${this.create_colour_picker("border_colour", "border_colour_input", border_colour, true)}
                 ${this.create_number_input("border_radius", "border_radius_input", border_rad_val, 0, 20, 1, true)}
                 ${this.create_number_input("animation_duration", "animation_duration_input", anim_duration_val, 1, 10, 0.5, true)}
                 ${this.create_settings_button("save", "save_notification_customization", "fa-solid fa-plus", true)}
@@ -1042,7 +1047,7 @@ class Settings {
         const header = 'Downloading documents..';
         const border = `${style.border_size} ${style.border_style} ${style.border_colour}`;
         const progress_html = `
-            <div class="progress_bar" style="color: ${style.colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
+            <div class="progress_bar" style="color: ${style.text_colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
                 <div class="progress_bar_header"><i class="${icon}"></i> ${header}</div>
                 <div class="progress_bar_body" style="background-color: ${style.bar_background}; border-radius: ${style.border_radius}">
                     <div class="progress_bar_fill" style="width: 70%; background-color: ${style.bar_fill}; border-radius: ${style.border_radius}"></div>
@@ -1071,7 +1076,7 @@ class Settings {
         const icon = 'fa-solid fa-download';
         const header = 'Downloading documents..';
         const progress_html = `
-            <div class="progress_bar" style="color: ${style.colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
+            <div class="progress_bar" style="color: ${style.text_colour}; background-color: ${style.background}; border: ${border}; border-radius: ${style.border_radius}; animation: fade ${style.animation};">
                 <div class="progress_bar_header"><i class="${icon}"></i> ${header}</div>
                 <div class="progress_bar_body" style="background-color: ${style.bar_background}; border-radius: ${style.border_radius}">
                     <div class="progress_bar_fill" style="width: 70%; background-color: ${style.bar_fill}; border-radius: ${style.border_radius}"></div>
@@ -1103,7 +1108,7 @@ class Settings {
         const border_rad_val = current_style.border_radius ? parseInt(current_style.border_radius) : 5;
         const anim_duration_val = current_style.animation ? parseFloat(current_style.animation.match(/(\d+(\.\d+)?)/)[0]) : 2;
         const bg_colour = current_style.background || '#000000';
-        const text_colour = current_style.colour || '#000000';
+        const text_colour = current_style.text_colour || '#000000';
         const bar_bg_colour = current_style.bar_background || '#000000';
         const bar_fill_colour = current_style.bar_fill || '#000000';
         const border_colour = current_style.border_colour || '#000000';
@@ -1122,13 +1127,13 @@ class Settings {
             <span class="group_label" data-translate="edit">Edit</span>
             <div class="content_group">
                 ${this.create_drop_down("customise")}
-                ${this.create_color_picker("background_colour", "background_colour_input", bg_colour, true)}
-                ${this.create_color_picker("text_colour", "text_colour_input", text_colour, true)}
-                ${this.create_color_picker("bar_bg_colour", "bar_bg_colour_input", bar_bg_colour, true)}
-                ${this.create_color_picker("bar_fill_colour", "bar_fill_colour_input", bar_fill_colour, true)}
+                ${this.create_colour_picker("background_colour", "background_colour_input", bg_colour, true)}
+                ${this.create_colour_picker("text_colour", "text_colour_input", text_colour, true)}
+                ${this.create_colour_picker("bar_bg_colour", "bar_bg_colour_input", bar_bg_colour, true)}
+                ${this.create_colour_picker("bar_fill_colour", "bar_fill_colour_input", bar_fill_colour, true)}
                 ${this.create_number_input("border_size", "border_size_input", border_size_val, 1, 10, 1, true)}
                 ${this.create_border_style_dropdown("border_style", "border_style_input", border_style, true)}
-                ${this.create_color_picker("border_colour", "border_colour_input", border_colour, true)}
+                ${this.create_colour_picker("border_colour", "border_colour_input", border_colour, true)}
                 ${this.create_number_input("border_radius", "border_radius_input", border_rad_val, 0, 20, 1, true)}
                 ${this.create_number_input("animation_duration", "animation_duration_input", anim_duration_val, 1, 10, 0.5, true)}
                 ${this.create_settings_button("save", "save_progress_customization", "fa-solid fa-plus", true)}
