@@ -1,6 +1,6 @@
 class DialogueManager {
     constructor() {
-        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' };
+        this.default_style = { background: '#1f1e1e', border_size: '3px', border_style: 'solid', border_colour: '#b4b4b4', border_radius: '15px', text_colour: '#b4b4b4', animation: '1s', vignette_colour: '#000000' };
         this.custom_style = {};
         this.data = null;
         this.load_user_settings();
@@ -57,7 +57,7 @@ class DialogueManager {
                 'background-color': this.custom_style.background || this.default_style.background,
                 'border': border_style,
                 'border-radius': this.custom_style.border_radius || this.default_style.border_radius,
-                'color': this.custom_style.colour || this.default_style.colour
+                'color': this.custom_style.text_colour || this.default_style.text_colour
             });
             this.build_header(container, data.header);
             this.build_response(container, data.conversation[0]);
@@ -104,7 +104,7 @@ class DialogueManager {
             'background-color': this.custom_style.background || this.default_style.background,
             'border': border_style,
             'border-radius': this.custom_style.border_radius || this.default_style.border_radius,
-            'color': this.custom_style.color || this.default_style.color,
+            'color': this.custom_style.text_colour || this.default_style.text_colour,
             'width': '93%',
             'margin': '2%',
         };
