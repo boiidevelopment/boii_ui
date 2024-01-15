@@ -15,7 +15,7 @@ window.addEventListener('message', function (event) {
         }
     } else if (data.action === 'notify') {
         notification = new NotificationManager();
-        notification.create_notification(data.notification.type, data.notification.header, data.notification.message, data.notification.duration);
+        notification.create_notification(data.notification);
     } else if (data.action === 'show_text') {
         drawtext = new DrawTextManager();
         drawtext.show_text(data.drawtext.header, data.drawtext.text, data.drawtext.icon);
