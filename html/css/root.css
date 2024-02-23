@@ -1,0 +1,136 @@
+/*----------------------------*/
+/*---- BOII | DEVELOPMENT ----*/
+/*----------------------------*/
+
+/* fonts */
+/* you can import additional fonts here  */
+@import url('https://fonts.googleapis.com/css2?family=Julee&family=Open+Sans&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Nova+Square&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script&family=Nova+Square&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+@font-face {
+    font-family: 'Digital';
+    src: url('../assets/fonts/digital-7.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* root */
+:root {    
+    
+    /* themes */
+    /* light theme */
+    --light_theme_text_colour: rgba(15, 15, 15, 1);
+    --light_theme_bg_colour: rgba(214, 214, 214, 1);
+    --light_theme_dock_bg_colour: rgba(214, 214, 214, 0.3);
+    --light_theme_settings_items_bg_colour: rgba(255, 255, 255, 0.2);
+    --light_theme_menu_item_active_bg_colour: rgba(0, 0, 0, 0.1);
+    --light_theme_wifi_name_colour: rgba(77, 203, 194, 1);
+    --light_theme_settings_stat_colour: rgba(0, 0, 0, 0.7);
+    --light_theme_toggle_slider_bg_colour: rgba(214, 214, 214, 1);
+    --light_theme_toggle_slider_active_bg_colour: rgba(77, 203, 194, 1);
+    --light_theme_settings_button_bg_colour: rgba(77, 203, 194, 1);
+
+    /* dark theme */
+    --dark_theme_text_colour: rgba(214, 214, 214, 1);
+    --dark_theme_bg_colour: rgba(31, 30, 30, 1);
+    --dark_theme_dock_bg_colour: rgba(15, 15, 15, 0.25);
+    --dark_theme_settings_items_bg_colour: rgba(0, 0, 0, 0.2);
+    --dark_theme_menu_item_active_bg_colour: rgba(0, 0, 0, 0.4);
+    --dark_theme_wifi_name_colour: rgba(61, 162, 155, 1);
+    --dark_theme_settings_stat_colour: rgba(214, 214, 214, 0.7);
+    --dark_theme_toggle_slider_bg_colour: rgba(214, 214, 214, 1);
+    --dark_theme_toggle_slider_active_bg_colour: rgba(61, 162, 155, 1);
+    --dark_theme_settings_button_bg_colour: rgba(61, 162, 155, 1);
+}
+
+
+/* light theme */
+.light_theme .tablet_screen {
+    color: var(--light_theme_text_colour);
+    background-color: var(--light_theme_bg_colour);
+}
+
+.light_theme .menu_item,
+.light_theme .content_group {
+    background-color: var(--light_theme_settings_items_bg_colour);
+}
+
+.light_theme .menu_item.active {
+    background-color: var(--light_theme_menu_item_active_bg_colour);
+}
+
+.light_theme .menu_item:not(.disabled):hover {
+    background-color: var(--light_theme_menu_item_active_bg_colour);
+}
+
+.light_theme .wifi_name {
+    color: var(--light_theme_wifi_name_colour);
+}
+
+.light_theme .settings_stat_name {
+    color: var(--light_theme_settings_stat_colour);
+}
+
+.light_theme .toggle_slider {
+    background-color: var(--light_theme_toggle_slider_bg_colour);
+}
+
+.light_theme input:checked + .toggle_slider {
+    background-color: var(--light_theme_toggle_slider_active_bg_colour);
+}
+
+.light_theme .settings_button {
+    background-color: var(--light_theme_settings_button_bg_colour);
+}
+
+/* dark theme */
+.dark_theme .tablet_screen {
+    color: var(--dark_theme_text_colour);
+    background-color: var(--dark_theme_bg_colour);
+}
+
+.dark_theme .dock_container {
+    background-color: var(--dark_theme_dock_bg_colour);
+}
+
+.dark_theme .menu_item,
+.dark_theme .content_group {
+    background-color: var(--dark_theme_settings_items_bg_colour);
+}
+
+.dark_theme .menu_item.active {
+    background-color: var(--dark_theme_menu_item_active_bg_colour);
+}
+
+.dark_theme .menu_item:not(.disabled):hover {
+    background-color: var(--dark_theme_menu_item_active_bg_colour);
+}
+
+.dark_theme .wifi_name {
+    color: var(--dark_theme_wifi_name_colour);
+}
+
+.dark_theme .settings_stat_name {
+    color: var(--dark_theme_settings_stat_colour);
+}
+
+.dark_theme .toggle_slider {
+    background-color: var(--dark_theme_toggle_slider_bg_colour);
+}
+
+.dark_theme input:checked + .toggle_slider {
+    background-color: var(--dark_theme_toggle_slider_active_bg_colour);
+}
+
+.dark_theme .settings_button {
+    background-color: var(--dark_theme_settings_button_bg_colour);
+}
