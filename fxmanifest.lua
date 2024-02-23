@@ -9,7 +9,7 @@ author 'boiidevelopment'
 
 description 'BOII | Development - Utility: UI Elements'
 
-version '0.1.4'
+version '0.2.0'
 
 lua54 'yes'
 
@@ -27,6 +27,8 @@ client_scripts {
     'client/progressbar.lua',
     'client/dialogue.lua'
 }
+
+server_script 'server/version.lua'
 
 escrow_ignore {
     'client/*',
