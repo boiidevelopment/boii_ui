@@ -32,4 +32,5 @@ server_script 'server/version.lua'
 
 escrow_ignore {
     'client/*',
+    'server/*'
 }
