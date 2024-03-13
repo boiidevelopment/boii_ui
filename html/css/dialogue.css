@@ -1,0 +1,122 @@
+/*
+     ____   ____ _____ _____   _   _____  ________      ________ _      ____  _____  __  __ ______ _   _ _______ 
+    |  _ \ / __ \_   _|_   _| | | |  __ \|  ____\ \    / /  ____| |    / __ \|  __ \|  \/  |  ____| \ | |__   __|
+    | |_) | |  | || |   | |   | | | |  | | |__   \ \  / /| |__  | |   | |  | | |__) | \  / | |__  |  \| |  | |   
+    |  _ <| |  | || |   | |   | | | |  | |  __|   \ \/ / |  __| | |   | |  | |  ___/| |\/| |  __| | . ` |  | |   
+    | |_) | |__| || |_ _| |_  | | | |__| | |____   \  /  | |____| |___| |__| | |    | |  | | |____| |\  |  | |   
+    |____/ \____/_____|_____| | | |_____/|______|   \/   |______|______\____/|_|    |_|  |_|______|_| \_|  |_|   
+                              | |                                                                                
+                              |_|               UI ELEMENTS
+*/
+
+.dialogue_wrapper {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialogue_container {
+    background-color: rgba(31, 30, 30, 0.9);
+    border: 3px solid rgb(180, 180, 180);
+    border-radius: 15px;
+    color: rgb(180, 180, 180);
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    animation: fade 2s;
+    margin: 1%;
+    font-family: 'Roboto';
+    position: relative;
+    box-shadow: 2px 2px 5px #0d0c0c, -2px -2px 5px #2b2a2a;
+}
+
+.dialogue_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.dialogue_header_content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dialogue_header_image {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.dialogue_header_text {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.dialogue_header_icon {
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dialogue_close_button {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.dialogue_close_button:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.dialogue_response {
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dialogue_options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    position: relative;
+    padding-top: 12px;
+}
+
+.dialogue_options::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.dialogue_option {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.dialogue_option:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialogue_vignette {
+    opacity: 0.1;
+}

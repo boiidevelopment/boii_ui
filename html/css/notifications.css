@@ -1,0 +1,67 @@
+/*
+     ____   ____ _____ _____   _   _____  ________      ________ _      ____  _____  __  __ ______ _   _ _______ 
+    |  _ \ / __ \_   _|_   _| | | |  __ \|  ____\ \    / /  ____| |    / __ \|  __ \|  \/  |  ____| \ | |__   __|
+    | |_) | |  | || |   | |   | | | |  | | |__   \ \  / /| |__  | |   | |  | | |__) | \  / | |__  |  \| |  | |   
+    |  _ <| |  | || |   | |   | | | |  | |  __|   \ \/ / |  __| | |   | |  | |  ___/| |\/| |  __| | . ` |  | |   
+    | |_) | |__| || |_ _| |_  | | | |__| | |____   \  /  | |____| |___| |__| | |    | |  | | |____| |\  |  | |   
+    |____/ \____/_____|_____| | | |_____/|______|   \/   |______|______\____/|_|    |_|  |_|______|_| \_|  |_|   
+                              | |                                                                                
+                              |_|               UI ELEMENTS
+*/
+
+.notification_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: fit-content; 
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    border-radius: 15px;
+    min-height: 300px;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.notification_container.movable {
+    cursor: move;
+}
+
+.notification {
+    border-radius: 15px;
+    color: rgb(180, 180, 180);
+    font-family: 'Kanit';
+    margin-bottom: 10px;
+    padding: 15px;
+    position: relative;
+    width: fit-content;
+    opacity: 0.975;
+
+}
+
+.notification_header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.notification_header i {
+    margin-right: 5px;
+}
+
+.notification_message {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.notification_image {
+    background-size: cover;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
