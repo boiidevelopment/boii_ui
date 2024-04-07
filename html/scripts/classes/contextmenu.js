@@ -281,10 +281,11 @@ class ContextManager {
                 button.on('click', () => {
                     const values = {};
                     input_wrapper.find('input').each(function() {
-                        values[this.placeholder] = $(this).val();
+                        values[this.type] = $(this).val();
                     });
                     if (option.button.action_type && option.button.action) {
-                        this.trigger_event(option.button.action_type, option.button.action, option.button.params, values);
+                        option.button.params.values = values;
+                        this.trigger_event(option.button.action_type, option.button.action, option.button.params);
                     }
                 });
             }
@@ -569,12 +570,11 @@ class ContextManager {
         option_item.append(wrapper);
     }
     
-    trigger_event(action_type, action, params, values) {
+    trigger_event(action_type, action, params) {
         $.post(`https://${GetParentResourceName()}/trigger_event`, JSON.stringify({
             action_type: action_type,
             action: action,
-            params: params,
-            values: values || null
+            params: params
         }));
     }
     
