@@ -222,7 +222,8 @@ class NotificationManager {
             'border': border,
             'color': style.text_colour,
             'background': style.background,
-            'animation': 'fade '+ style.animation
+            'animation': 'fade '+ style.animation,
+            'box-shadow': style.box_shadow
         };
         const notification_div = $('<div>').addClass('notification').css(notification_style);
         if (icon) {
