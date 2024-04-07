@@ -16,7 +16,7 @@ author 'boiidevelopment'
 
 description 'BOII | Development - Utility: UI Elements'
 
-version '1.0.0'
+version '1.0.1'
 
 lua54 'yes'
 
