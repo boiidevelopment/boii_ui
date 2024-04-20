@@ -1,4 +1,13 @@
-
+/*
+     ____   ____ _____ _____   _   _____  ________      ________ _      ____  _____  __  __ ______ _   _ _______ 
+    |  _ \ / __ \_   _|_   _| | | |  __ \|  ____\ \    / /  ____| |    / __ \|  __ \|  \/  |  ____| \ | |__   __|
+    | |_) | |  | || |   | |   | | | |  | | |__   \ \  / /| |__  | |   | |  | | |__) | \  / | |__  |  \| |  | |   
+    |  _ <| |  | || |   | |   | | | |  | |  __|   \ \/ / |  __| | |   | |  | |  ___/| |\/| |  __| | . ` |  | |   
+    | |_) | |__| || |_ _| |_  | | | |__| | |____   \  /  | |____| |___| |__| | |    | |  | | |____| |\  |  | |   
+    |____/ \____/_____|_____| | | |_____/|______|   \/   |______|______\____/|_|    |_|  |_|______|_| \_|  |_|   
+                              | |                                                                                
+                              |_|               UI ELEMENTS
+*/
 
 class ActionMenu {
     constructor() {
@@ -9,7 +18,7 @@ class ActionMenu {
     }
 
     create_menu_container() {
-        this.menu_container = $('<div>').addClass('radial_menu_container');
+        this.menu_container = $('<div>').addClass('action_menu_container');
         $('#main_container').append(this.menu_container);
     }
 
@@ -94,7 +103,7 @@ class ActionMenu {
 
 /*
 $(document).ready(function() {
-    const menuData = [
+    const test_menu = [
         {
             label: "Level 1",
             icon: "fa-solid fa-sitemap",
@@ -147,7 +156,7 @@ $(document).ready(function() {
         }
     ];
 
-    const actionMenu = new ActionMenu();
-    actionMenu.create_menu(menuData);
+    const test_action_menu = new ActionMenu();
+    test_action_menu.create_menu(test_menu);
 });
 */
