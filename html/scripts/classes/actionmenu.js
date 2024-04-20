@@ -15,7 +15,16 @@ class ActionMenu {
         this.current_menu = [];
         this.is_menu_active = false;
         this.create_menu_container();
+        $(document).ready(() => {
+            $(document).keyup((e) => this.handle_exit(e));
+        });
     }
+
+    handle_exit(e) {
+        if (e.key === "Escape" || e.key === "Backspace") {
+            this.close();
+        }
+    } 
 
     create_menu_container() {
         this.menu_container = $('<div>').addClass('action_menu_container');
