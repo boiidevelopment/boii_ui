@@ -18,7 +18,34 @@ local callback
 
 local progress_props = {}
 
+local controls = {
+    mouse = { 1, 2, 106 },
+    movement = { 30, 31, 36, 21, 75 },
+    car_movement = { 63, 64, 71, 72 },
+    combat = { 24, 25, 37, 47, 58, 140, 141, 142, 143, 263, 264, 257 }
+}
+
 --- @section Local functions
+
+--- Disables controls specified under controls table.
+-- @param data table: Controls table.
+local function disable_controls(data)
+    CreateThread(function()
+        while active do
+            for disable_type, is_enabled in pairs(data) do
+                if is_enabled and controls[disable_type] then
+                    for _, control in ipairs(controls[disable_type]) do
+                        DisableControlAction(0, control, true)
+                    end
+                end
+            end
+            if data.combat then
+                DisablePlayerFiring(PlayerId(), true)
+            end
+            Wait(0)
+        end
+    end)
+end
 
 --- Shows the progressbar with given options and callback result.
 -- @param options table: The options to use on the progress bar. 
@@ -29,6 +56,9 @@ local function show_progress(options, cb)
     if active then return end
     active = true 
     callback = cb
+    if options.disabled_controls then
+        disable_controls(options.disabled_controls)
+    end
     if options.animation then
         local anim = options.animation
         RequestAnimDict(anim.dict)
@@ -86,10 +116,16 @@ exports('show_progress', show_progress)
 
 --- Creates a test progressbar.
 RegisterCommand('test_progressbar', function()
-    exports['boii_ui']:show_progress({
+    exports.boii_ui:show_progress({
         header = 'Trimming Buds..', -- Progressbar header text
         icon = 'fa-solid fa-cannabis', -- Header icon
         duration = 15000, -- Total duration for bar to run in (ms)
+        disable_controls = { -- COntrol disables added in for ease of use with bridging qb-progressbar along with providing that extra familiarity.
+            mouse = false, -- Disables mouse controls
+            movement = false, -- Movement controls
+            car_movement = false, -- In vehicle movement controls
+            combat = false -- Disables firing
+        },
         animation = { -- Here you can input optional animation settings to use no animation remove the section
             dict = 'amb@prop_human_parking_meter@female@base', -- Animation dictionary used if animation provided
             anim = 'base_female', -- Animation type used
