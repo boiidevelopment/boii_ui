@@ -16,7 +16,7 @@ name 'boii_ui'
 version '1.1.0'
 description 'BOII | Development - Utility: UI Elements'
 author 'boiidevelopment'
-repository 'https://github.com/boiidevelopment/boii_ui
+repository 'https://github.com/boiidevelopment/boii_ui'
 lua54 'yes'
 
 ui_page 'html/index.html'
