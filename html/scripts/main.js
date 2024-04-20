@@ -4,6 +4,7 @@ let drawtext = null;
 let progress = null;
 let dialogue = null;
 let context = null;
+let action_menu = null;
 
 window.addEventListener('message', function (event) {
     let data = event.data;
@@ -42,7 +43,14 @@ window.addEventListener('message', function (event) {
     } else if (data.action === 'create_dialogue') {
         dialogue = new DialogueManager();
         dialogue.init(data.dialogue);
-    }
+    } else if (data.action === 'create_action_menu') {
+        action_menu = new ActionMenu();
+        action_menu.create_menu(data.menu);
+    } else if (data.action === 'close_action_menu') {
+        if (action_menu) {
+            action_menu.close();
+        }
+    } 
 });
 
 function rgb_to_hex(rgb) {
