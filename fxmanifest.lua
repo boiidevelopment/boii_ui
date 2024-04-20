@@ -16,7 +16,7 @@ author 'boiidevelopment'
 
 description 'BOII | Development - Utility: UI Elements'
 
-version '1.0.1'
+version '1.0.2'
 
 lua54 'yes'
 
@@ -32,7 +32,8 @@ client_scripts {
     'client/drawtext.lua',
     'client/notifications.lua',
     'client/progressbar.lua',
-    'client/dialogue.lua'
+    'client/dialogue.lua',
+    'client/actionmenu.lua'
 }
 
 server_script 'server/version.lua'
