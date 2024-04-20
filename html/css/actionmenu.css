@@ -1,0 +1,105 @@
+/*
+     ____   ____ _____ _____   _   _____  ________      ________ _      ____  _____  __  __ ______ _   _ _______ 
+    |  _ \ / __ \_   _|_   _| | | |  __ \|  ____\ \    / /  ____| |    / __ \|  __ \|  \/  |  ____| \ | |__   __|
+    | |_) | |  | || |   | |   | | | |  | | |__   \ \  / /| |__  | |   | |  | | |__) | \  / | |__  |  \| |  | |   
+    |  _ <| |  | || |   | |   | | | |  | |  __|   \ \/ / |  __| | |   | |  | |  ___/| |\/| |  __| | . ` |  | |   
+    | |_) | |__| || |_ _| |_  | | | |__| | |____   \  /  | |____| |___| |__| | |    | |  | | |____| |\  |  | |   
+    |____/ \____/_____|_____| | | |_____/|______|   \/   |______|______\____/|_|    |_|  |_|______|_| \_|  |_|   
+                              | |                                                                                
+                              |_|               UI ELEMENTS
+*/
+
+.action_menu_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.actions.left, 
+.actions.right {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    flex: 1;
+}
+
+.actions.left {
+    align-items: flex-end;
+}
+
+.actions.right {
+    align-items: flex-start; 
+}
+
+.action {
+    border-radius: 15px;
+    padding: 5px;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+}
+
+.action .label_container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    border-radius: 10px;
+    justify-content: space-between;
+    gap: 15px;
+    opacity: 0.8;
+}
+
+.action .label_container:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.action .label {
+    background: rgba(0, 0, 0, 0.9);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    white-space: nowrap;
+    width: fit-content;
+    font-size: 0.8rem;
+    user-select: none;
+}
+
+.action .icon {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 50px;
+    padding: 1px;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    user-select: none;
+}
+
+.center_button {
+    background: #1f1e1e;
+    border-radius: 50px;
+    padding: 10px;
+    height: 1vh;
+    width: 1vw;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+    border: 2px solid #b4b4b4;
+    opacity: 0.8;
+    user-select: none;
+}
+
+.center_button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
