@@ -22,7 +22,7 @@ class ContextManager {
     }
 
     handle_exit(e) {
-        if (e.key === "Escape" || e.key === "Backspace") {
+        if (e.key === "Escape") {
             this.close();
         }
     }
