@@ -60,46 +60,55 @@
 }
 
 .action .label {
-    background: rgba(0, 0, 0, 0.9);
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 10px;
+    border-radius: 16px;
+    border: none;
     white-space: nowrap;
     width: fit-content;
     font-size: 0.8rem;
-    user-select: none;
+    background-color: #1f1e1e;
+    color: #b4b4b4;
 }
 
 .action .icon {
-    background: rgba(0, 0, 0, 0.9);
+    background-color: #1f1e1e;
     border-radius: 50px;
-    padding: 1px;
+    padding: 8px;
     margin: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 0.8rem;
-    user-select: none;
+    font-size: 1.5vh;
+    width: 16px;
+    height: 16px;
 }
 
 .center_button {
     background: #1f1e1e;
     border-radius: 50px;
-    padding: 10px;
-    height: 1vh;
-    width: 1vw;
+    padding: 6px;
+    width: 16px;
+    height: 16px;
     margin: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.2vh;
     color: white;
-    border: 2px solid #b4b4b4;
     opacity: 0.8;
     user-select: none;
+    box-shadow: 2px 3px 3px #0d0c0c, -2px -3px 4px #b4b4b4;
 }
 
 .center_button:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+.center_button i {
+    margin-left: 2px;
+    margin-top: 3px;
 }
