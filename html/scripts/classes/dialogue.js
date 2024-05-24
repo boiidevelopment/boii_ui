@@ -72,7 +72,7 @@ class DialogueManager {
                 'box-shadow': this.custom_style.box_shadow || this.default_style.box_shadow
             });
             this.build_header(container, data.header);
-            this.build_response(container, data.conversation[0]);
+            this.build_response(container, data.conversation[0].response);
             this.build_options(container, data.conversation[0].options);
             const vignette_colour = this.custom_style.vignette_colour || this.default_style.vignette_colour;
             $('#main_container').css({
@@ -101,17 +101,25 @@ class DialogueManager {
             header_content.append(header_icon);
         }
         if (header_data.message) {
-            const header_text = $('<span>').text(header_data.message).addClass('dialogue_header_text');
-            header_content.append(header_text);
+            const messages = Array.isArray(header_data.message) ? header_data.message : [header_data.message];
+            messages.forEach(message => {
+                const header_text = $('<span>').text(message).addClass('dialogue_header_text');
+                header_content.append(header_text);
+            });
         }
         header.append(header_content);
         container.append(header);
     }
     
-    build_response(container, conversation) {
+    build_response(container, response_data) {
         container.find('.dialogue_response').remove();
-        const response = $('<div>').addClass('dialogue_response').text(conversation.response);
-        container.append(response);
+        const response_container = $('<div>').addClass('dialogue_response');
+        const responses = Array.isArray(response_data) ? response_data : [response_data];
+        responses.forEach(response => {
+            const response_div = $('<div>').addClass('response').html(response);
+            response_container.append(response_div);
+        });
+        container.append(response_container);
     }
 
     build_dummy(data) {
@@ -129,7 +137,7 @@ class DialogueManager {
         this.build_header(html, data.header);
         if (data.conversation && data.conversation.length > 0) {
             const first_conv = data.conversation[0];
-            this.build_response(html, first_conv);
+            this.build_response(html, first_conv.response);
             this.is_dummy = true;
             this.build_options(html, first_conv.options);
             this.is_dummy = false;
@@ -160,7 +168,7 @@ class DialogueManager {
         if (option.next_id) {
             const next_conv = this.data.conversation.find(conv => conv.id === option.next_id);
             if (next_conv) {
-                this.build_response($('.dialogue_container'), next_conv);
+                this.build_response($('.dialogue_container'), next_conv.response);
                 this.build_options($('.dialogue_container'), next_conv.options);
             }
         } else if (option.should_end) {
@@ -176,6 +184,7 @@ class DialogueManager {
     }
 }
 
+
 // DO NOT REMOVE THIS TEST DATA THIS IS USED BY THE SETTINGS UI PAGE TO CREATE THE DUMMY DIALOGUE DISPLAY
 const test_dialogue = {
     header: {
@@ -185,7 +194,10 @@ const test_dialogue = {
     conversation: [
         {
             id: 1,
-            response: 'Hello, welcome to the quarry. How can I assist you today?',
+            response: [
+                'Hello, welcome to the quarry.',
+                'How can I assist you today?'
+            ],
             options: [
                 {
                     icon: 'fa-solid fa-question-circle',
