@@ -48,8 +48,8 @@ class ActionMenu {
         actions.forEach((action, index) => {
             let action_html = $('<div>').addClass('action').data('id', action.label);
             let colour = action.colour || '#b4b4b4';
-            let label_html = `<span class="label" style="border: 2px solid ${colour}; color: ${colour};">${action.label}</span>`;
-            let icon_html = `<span class="icon" style="border: 2px solid ${colour}; color: ${colour};"><i class="${action.icon}"></i></span>`;
+            let label_html = `<span class="label" style="box-shadow: 2px 3px 3px #0d0c0c, -2px -3px 4px ${colour};">${action.label}</span>`;
+            let icon_html = `<span class="icon" style="box-shadow: 2px 3px 3px #0d0c0c, -2px -3px 4px ${colour}; color: ${colour};"><i class="${action.icon}"></i></span>`;
             action_html.on('click', () => this.handle_action_click(action));
             if (index % 2 === 0) {
                 action_html.html(`<div class="label_container">${icon_html}${label_html}</div>`);
