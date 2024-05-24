@@ -153,7 +153,7 @@ class NotificationManager {
         this.notifications_enabled = true;
         this.custom_styles = {};
         this.position = { top: '10px', left: '10px' };
-        this.alignment = 'flex-start';
+        this.alignment = 'flex-end';
         this.load_user_settings();
         this.create_notification_container();
     }
@@ -201,6 +201,7 @@ class NotificationManager {
     }
 
     create_notification(data) {
+        console.log('type: ' + data.type);
         let type = data.type || 'general';
         let header = data.header || 'No header was provided';
         let message = data.message || 'No message was provided';
@@ -259,7 +260,28 @@ class NotificationManager {
 /*
 $(document).ready(function() {
     const notif_manager = new NotificationManager();
-    notif_manager.create_notification('success', 'Test', 'test test test', 120000);
+    notif_manager.create_notification({
+        type: 'success', 
+        header: 'Test', 
+        message: 'test test testsd sdsdsds ds sdsdsdsdsds', 
+        duration: 120000
+    });
+    setTimeout(() => {
+        notif_manager.create_notification({
+            type: 'info', 
+            header: 'Test 2', 
+            message: 'test test testsdaassdsdsds sdsdsdsdsds', 
+            duration: 103000
+        });
+    }, 2000)
+    setTimeout(() => {
+        notif_manager.create_notification({
+            type: 'staff', 
+            header: 'Test 3', 
+            message: 'test test testsdaassdsdsds sdsdsdsdsds', 
+            duration: 103000
+        });
+    }, 3000)
     //notif_manager.show_all_notifications();
 });
 */
